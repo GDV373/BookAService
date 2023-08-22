@@ -24,6 +24,19 @@
             $('.sticky-top').css('top', '-100px');
         }
     });
+
+    // NavBar active
+    const navLinkEls = document.querySelectorAll('.nav-link');
+    console.log(navLinkEls);
+    const windowsPathname = window.location.pathname;
+
+    navLinkEls.forEach(navLinkEl => {
+        const navLinkPathname = new URL(navLinkEl.href).pathname;
+
+        if (windowsPathname === navLinkPathname) {
+            navLinkEl.classList.add('active');
+        }    
+    });
     
     
     // Dropdown on mouse hover
