@@ -1,5 +1,10 @@
+# import os
+# from flask import Flask, render_template
+# from taskmanager.models import customer
+# #from taskmanager import 
 import os
 from flask import Flask, render_template
+from accounts.models import customer
 
 
 app = Flask(__name__)
@@ -19,11 +24,22 @@ def about():
 def contact():
     return render_template("contact.html")
 
-
 @app.route("/service")
 def service():
     return render_template("service.html")
 
+@app.route("/signinpage" , methods=['GET', 'POST'])
+def signinpage():
+    return render_template("signinpage.html")
+
+@app.route("/signin" , methods=['GET', 'POST'])
+def signin():
+    return render_template("signin.html")       
+
+
+@app.route("/register" , methods=['GET', 'POST'])
+def register():
+    return render_template("register.html")    
 
 if __name__ == "__main__":
     app.run(
