@@ -4,8 +4,11 @@
 # #from taskmanager import 
 import os
 from flask import Flask, render_template
-from accounts.models import customer
-
+from django.conf import settings
+settings.configure()
+import django
+django.setup()
+#from accounts.models import customer
 
 app = Flask(__name__)
 
