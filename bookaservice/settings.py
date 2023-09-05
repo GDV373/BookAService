@@ -78,12 +78,23 @@ WSGI_APPLICATION = 'bookaservice.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': BASE_DIR / 'db.sqlite3',
-     }
- }
+# DATABASES = {
+#      'default': {
+#          'ENGINE': 'django.db.backends.sqlite3',
+#          'NAME': BASE_DIR / 'db.sqlite3',
+#      }
+#  }
+
+ DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sb5mwlpdn7xc57zw',
+        'USER': 'root',
+        'PASSWORD': 'qjiz27754o7tyif7',
+        'HOST':'oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+        'PORT':'3306',
+    }
+}
 
 
 
