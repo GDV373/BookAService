@@ -1,1 +1,1 @@
-web: gunicorn bookaservice.wsgi:application
+web: python run.py
