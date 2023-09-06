@@ -87,9 +87,7 @@ WSGI_APPLICATION = 'bookaservice.wsgi.application'
 
  DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sb5mwlpdn7xc57zw',
-        'USER': 'root',
+        'USERNAME': 'sb5mwlpdn7xc57zw',
         'PASSWORD': 'qjiz27754o7tyif7',
         'HOST':'oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
         'PORT':'3306',
