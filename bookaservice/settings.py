@@ -85,14 +85,17 @@ WSGI_APPLICATION = 'bookaservice.wsgi.application'
 #      }
 #  }
 
- DATABASES = {
+DATABASES = {
     'default': {
-        'USERNAME': 'sb5mwlpdn7xc57zw',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'accounts',
+        'USER': 'sb5mwlpdn7xc57zw',
         'PASSWORD': 'qjiz27754o7tyif7',
-        'HOST':'oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
-        'PORT':'3306',
+        'HOST': 'oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
+
 
 
 
