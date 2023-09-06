@@ -85,6 +85,9 @@ WSGI_APPLICATION = 'bookaservice.wsgi.application'
 #      }
 #  }
 
+MYSQLCLIENT_CFLAGS = os.environ.get('MYSQLCLIENT_CFLAGS', '')
+MYSQLCLIENT_LDFLAGS = os.environ.get('MYSQLCLIENT_LDFLAGS', '')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
