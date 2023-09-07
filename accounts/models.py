@@ -81,8 +81,6 @@ class Locations(models.Model):
     ]
 
 class Car(models.Model):
-    class Meta:
-        app_label  = 'cars'
     Brand = models.CharField(max_length=200)
     Model = models.CharField(max_length=200, blank=False)
     Fuel_Type =  models.IntegerField(blank=False)
@@ -93,8 +91,6 @@ class Car(models.Model):
         return self.NumPlate
 
 class Customer(models.Model):
-    class Meta:
-        app_label  = 'customers'
     Name = models.CharField(max_length=200)
     Location = models.CharField(max_length=50, choices = Locations.Malta_Locations, blank =False, null =False)
     Mobile = models.CharField(max_length=8, blank=False)
@@ -110,8 +106,6 @@ class Customer(models.Model):
 
 
 class BusinessCustomer(models.Model):
-    class Meta:
-        app_label  = 'businesscustomers'
     Owner_Name = models.CharField(max_length=200, blank=False)
     Business_Name = models.CharField(max_length=200, blank=False)
     Location = models.CharField(max_length=50, choices = Locations.Malta_Locations, blank =False, null =False)
