@@ -89,17 +89,27 @@ WSGI_APPLICATION = 'bookaservice.wsgi.application'
 MYSQLCLIENT_CFLAGS = os.environ.get('MYSQLCLIENT_CFLAGS', '')
 MYSQLCLIENT_LDFLAGS = os.environ.get('MYSQLCLIENT_LDFLAGS', '')
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'accounts',
+#         'USER': 'sb5mwlpdn7xc57zw',
+#         'PASSWORD': 'qjiz27754o7tyif7',
+#         'HOST': 'oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'accounts',
-        'USER': 'sb5mwlpdn7xc57zw',
-        'PASSWORD': 'qjiz27754o7tyif7',
-        'HOST': 'oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cnbqfxve',                       
+        'USER': 'cnbqfxve',                       
+        'PASSWORD': 'KRB5VurB7qakeBjvdZWsIX_pB3GThYOP',  
+        'HOST': 'snuffleupagus.db.elephantsql.com',  
+        'PORT': '5432',                           
     }
 }
-
 
 
 
