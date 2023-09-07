@@ -4,8 +4,6 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Locations(models.Model):
-    class Meta:
-        app_label  = 'locations'
     Malta_Locations = [
         ('Attard', 'Attard'),
         ('Ħal-Balzan', 'Ħal-Balzan'),
