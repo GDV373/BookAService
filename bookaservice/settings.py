@@ -103,9 +103,9 @@ MYSQLCLIENT_LDFLAGS = os.environ.get('MYSQLCLIENT_LDFLAGS', '')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cnbqfxve',                       
-        'USER': 'cnbqfxve',                       
-        'PASSWORD': 'KRB5VurB7qakeBjvdZWsIX_pB3GThYOP',  
+        'NAME': 'ykjlryga',                       
+        'USER': 'ykjlryga',                       
+        'PASSWORD': 'Y2hSSCjJpcznv6Ib56HyT9deXDTWpZmQ',  
         'HOST': 'snuffleupagus.db.elephantsql.com',  
         'PORT': '5432',                           
     }
