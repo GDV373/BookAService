@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+ <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="text-primary text-uppercase">// Settings //</h6>
+            </div>
+
+            <div class="profile">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Profile Settings</h4>
+                        <p class="card-text"><strong>First Name</strong><br> {{ user.first_name }}</p>
+                        <p class="card-text"><strong>Last Name</strong> <br>{{ user.last_name }}</p>
+                        <p class="card-text"><strong>Email Address</strong> <br>{{ user.email }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-warning " href="{% url 'edit_profile' %}">Edit Details</a>
+                        <a href="{% url 'password_update' %}" class="btn btn-info text-light" >Update Password</a>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="profile">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">{{ user.business.name }}</h4>
+                        <p class="card-text"><strong>Location</strong> <br>{{ user.business.get_Location_display }}</p>
+                        <p class="card-text"><strong>Mobile</strong> <br>{{ user.business.Mobile }}</p>
+                        <p class="card-text"><strong>VAT Number</strong> <br>{{ user.business.Vat_Number }}</p>
+                        <p class="card-text"><strong>Address</strong><br> {{ user.business.Address }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-warning " href="{% url 'business_profile_update' pk=user.business.pk %}">Edit Details</a>
+                        <button class="btn btn-danger" id="deleteAccountButton" data-toggle="modal" data-target="#confirmDeleteModal">Delete Account</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirmation Modal -->
+            <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Deletion</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete your account?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger" id="confirmDeleteButton">Sure</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <script>
+        document.getElementById("confirmDeleteButton").addEventListener("click", function () {
+            // Redirect to the delete_account URL when "Sure" is clicked
+            window.location.href = "{% url 'delete_account' %}";
+        });
+    </script>
+{% endblock %}

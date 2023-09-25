@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
-                        <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                        <p class="mb-4">You have any issues? Or any problems with our registered services? Let us know, we are here for you to answer all your questions</a>.</p>
                         <form>
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -45,8 +45,14 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                </div>
+                                    <button class="btn btn-primary w-100 py-3" type="button" onclick="showSuccessMessage()">Send Message</button>
+                                  </div>
+                                  
+                                  <script>
+                                    function showSuccessMessage() {
+                                      alert("Request received successfully!");
+                                    }
+                                  </script>
                             </div>
                         </form>
                     </div>

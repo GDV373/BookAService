@@ -1,15 +1,51 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <title>signin</title>
-</head>
-<body>
-    <h1>signin</h1>
-</body>
+  </head>
+  <body>
+    <div class="containers">
+        {% if messages %}
+            <div class="alert alert-danger">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+      <div class="login">
+        <form action="{% url 'login' %}" method="post" class="containers">
+            {% csrf_token %}
+          <h1 class="text-primary">Log in</h1>
+          <input name="email" type="email" placeholder="Email" />
+          <input name="password" type="password" placeholder="Password" /><br />
+          <input type="checkbox" /><span>Remember me</span>
+          <a href="#">Forgot password?</a>
+          <button>log in</button>
+          <hr />
+          <p>Or Connect With</p>
+          <hr />
+
+          <div class="clearfix"></div>
+          <span class="copyright">&copy;2023</span>
+        </form>
+      </div>
+      <div class="register">
+        <div class="containers">
+          <i class="fas fa-user-plus fa-5x"></i>
+          <h2 class="text-info">Hello,friend!</h2>
+          <p>Enter your personal details and start journey with us</p>
+          <a class="button" href="{% url 'signinpage' %}"
+            >Register <i class="fas fa-arrow-circle-right"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
 
 {% endblock %}

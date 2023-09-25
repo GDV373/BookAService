@@ -1,8 +1,22 @@
 from django.db import models
-#from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import AbstractUser
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.base_user import BaseUserManager
 
-# Create your models here.
+customer_types = (
+    (1, "Customer"),
+    (2, "Business"),
+)
+
+#Diesel, Petrol, Hybrid, Electric
+FUEL_TYPES = (
+    ("diesel", "Diesel"),
+    ("petrol", "Petrol"),
+    ("hybrid", "Hybrid"),
+    ("electric", "Electric"),
+)
+
+
 class Locations(models.Model):
     Malta_Locations = [
         ('Attard', 'Attard'),
@@ -78,42 +92,108 @@ class Locations(models.Model):
         ('Marsalforn', 'Marsalforn'),
     ]
 
+
+class UserManager(BaseUserManager):
+    use_in_migrations = True
+
+    def _create_user(self, email, password, **extra_fields):
+        if not email:
+            raise ValueError('Users require an email field')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', False)
+        extra_fields.setdefault('is_superuser', False)
+        return self._create_user(email, password, **extra_fields)
+
+    def create_superuser(self, email, password, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+
+        return self._create_user(email, password, **extra_fields)
+
+
+class User(AbstractUser):
+    username = None
+    email = models.EmailField(_('email address'), unique=True)
+
+    objects = UserManager()
+
+    REQUIRED_FIELDS = []
+    USERNAME_FIELD = "email"
+
+    def is_customer(self):
+        return Customer.objects.filter(user=self).exists()
+
+    def is_business_owner(self):
+        return Business.objects.filter(user=self).exists()
+
+
+class Customer(models.Model):
+    user = models.OneToOneField(User, related_name="customer", on_delete=models.CASCADE)
+    Location = models.CharField(max_length=50, choices=Locations.Malta_Locations, blank=False, null=False)
+    Mobile = models.CharField(max_length=8, blank=False)
+    Vat_Number = models.CharField(max_length=11, blank=True, null=True)
+    ID_number = models.CharField(max_length=10, blank=False, unique=True)
+    Address = models.CharField(max_length=200, blank=False)
+
+    def __str__(self):
+        return self.user.email
+
+
 class Car(models.Model):
+    owner = models.ForeignKey(Customer, related_name="cars", on_delete=models.CASCADE)
     Brand = models.CharField(max_length=200)
     Model = models.CharField(max_length=200, blank=False)
-    Fuel_Type =  models.IntegerField(blank=False)
+    Fuel_Type = models.CharField(blank=False, choices=FUEL_TYPES, default="diesel", max_length=20)
     VIN = models.CharField(max_length=200, blank=False)
     NumPlate = models.CharField(max_length=200, blank=False)
 
     def __str__(self):
         return self.NumPlate
 
-class Customer(models.Model):
-    Name = models.CharField(max_length=200)
-    Location = models.CharField(max_length=50, choices = Locations.Malta_Locations, blank =False, null =False)
+
+class Business(models.Model):
+    user = models.OneToOneField(User, related_name="business", on_delete=models.CASCADE)
+    name = models.CharField(max_length=200, blank=False)
+    Location = models.CharField(max_length=50, choices=Locations.Malta_Locations, blank=False, null=False)
     Mobile = models.CharField(max_length=8, blank=False)
-    Vat_Number =  models.CharField(max_length=10, blank=True)
-    ID_number = models.CharField(max_length=10, blank=False, unique=True)
-    Email = models.EmailField(blank=False)
+    Vat_Number = models.CharField(max_length=11, unique=True)
     Address = models.CharField(max_length=200, blank=False)
-    Service = models.CharField(max_length=200, blank=False)    
-    carFK = models.ForeignKey(Car, on_delete=models.PROTECT)
-    
+
     def __str__(self):
-        return self.Name
+        return self.name
 
 
-class BusinessCustomer(models.Model):
-    Owner_Name = models.CharField(max_length=200, blank=False)
-    Business_Name = models.CharField(max_length=200, blank=False)
-    Location = models.CharField(max_length=50, choices = Locations.Malta_Locations, blank =False, null =False)
-    Mobile = models.CharField(max_length=8, blank=False)
-    Vat_Number =   models.CharField(max_length=10, blank=False, unique=True)
-    Email = models.EmailField(blank=False)
-    Address = models.CharField(max_length=200, blank=False)
-    Service = models.CharField(max_length=200, blank=False)    
-    carFK = models.ForeignKey(Car, on_delete=models.PROTECT)
-    customerFK = models.ForeignKey(Customer, on_delete=models.PROTECT)
-    
+class Service(models.Model):
+    name = models.CharField(max_length=200)
+    provider = models.ForeignKey(Business, on_delete=models.CASCADE, related_name="services")
+
     def __str__(self):
-        return self.Business_Name
+        return self.name
+
+
+class BookService(models.Model):
+    client = models.ForeignKey(Customer, related_name="bookings", on_delete=models.CASCADE)
+    car = models.ForeignKey(Car, related_name="bookings", on_delete=models.CASCADE)
+    service = models.ForeignKey(Service, related_name="bookings", on_delete=models.CASCADE)
+    details = models.TextField(null=True, blank=True)
+    deliver_date = models.DateField()
+    acceptation = models.BooleanField(default=False)
+    cancelled = models.BooleanField(default=False)
+    completed = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["completed"]
+
+    def __str__(self):
+        return self.service.name

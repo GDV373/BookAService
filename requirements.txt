@@ -8,10 +8,11 @@ Django==3.2.20
 Flask==2.3.3
 gunicorn==21.2.0
 itsdangerous==2.1.2
-psycopg2==2.9.7
+psycopg2-binary
 pytz==2023.3
 sqlparse==0.4.4
 urllib3==1.26.16
 Werkzeug==2.3.7
 pymysql==0.7.11
 mysqlclient==2.0.3
+django-crispy-forms==2.0

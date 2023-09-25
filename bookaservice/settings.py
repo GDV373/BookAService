@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t8fo$ytz=ms%v!lrhm*@3u)wui6nz8$)$_mq-%10lrzothj6(n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -35,14 +35,18 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'crispy_forms',
+    'accounts',
+    'client',
+    'business',
+    'authentication',
+    'base',
 ]
 
 MIDDLEWARE = [
@@ -56,11 +60,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bookaservice.urls'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,7 +79,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bookaservice.wsgi.application'
-
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_AUTHENTICATION_METHOD = "email"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -100,17 +106,17 @@ MYSQLCLIENT_LDFLAGS = os.environ.get('MYSQLCLIENT_LDFLAGS', '')
 #     }
 # }
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ykjlryga',                       
-        'USER': 'ykjlryga',                       
-        'PASSWORD': 'Y2hSSCjJpcznv6Ib56HyT9deXDTWpZmQ',  
-        'HOST': 'snuffleupagus.db.elephantsql.com',  
-        'PORT': '5432',                           
+        'NAME': 'ykjlryga',
+        'USER': 'ykjlryga',
+        'PASSWORD': 'Y2hSSCjJpcznv6Ib56HyT9deXDTWpZmQ',
+        'HOST': 'snuffleupagus.db.elephantsql.com',
+        'PORT': '5432',
     }
 }
-
 
 
 # Password validation
@@ -133,8 +139,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'dashboard/'
+LOGIN_URL = 'signinpage'
 
 # Crispy Template Packs
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
@@ -167,15 +173,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static'),
-]
-STATIC_URL = '/static/'
-#STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Static files (CSS, JavaScript, Images)
+
+STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+# Media files (uploads, user-generated content)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = "accounts.User"

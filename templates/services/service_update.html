@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+ <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="text-primary text-uppercase">// Service Update //</h6>
+            </div>
+            <div class="row g-4 table-responsive">
+
+                 <form method="post">
+                    {% csrf_token %}
+
+                    <!-- Brand Field -->
+                    <div class="form-group">
+                        <label >Service Name</label>
+                        <input type="text" class="form-control"  name="name" value="{{ service.name }}">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update Service</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+{% endblock %}

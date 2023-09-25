@@ -1,47 +1,136 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <body>
-    {% for message in messages %} 
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-       <strong>Message:</strong> {{ message }}
-       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-       <span aria-hidden="true">&times;</span>
-       </button>
+  {% if messages %}
+    <div class="alert alert-danger">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
     </div>
-    {% endfor %}
-     
-    <div class="container">
-       <h3>Create your account!</h3>
-       <form method="post" action="/register">
-          {{ csrf_token }}
-          <div class="form-group">
-             <label for="fname">First Name</label>
-             <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter Your First Name" Required>
-          </div>
-          <div class="form-group">
-             <label for="lname">Last Name</label>
-             <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name" Required>
-          </div>
-          <div class="form-group">
-             <label for="email">Email</label>
-             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" Required>
-          </div>
-          <div class="form-group">
-            <label for="location">location</label>
-            <input class="form-control" id="location" name="location" placeholder="Select Your location" Required>
-         </div>
-          <div class="form-group">
-             <label for="pass1">Password</label>
-             <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Create Your Password" Required>
-          </div>
-          <div class="form-group">
-             <label for="pass2">Confirm Password</label>
-             <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm Your Password" Required>
-          </div>
-          <button type="submit" class="btn btn-primary">register</button>
-       </form>
-    </div>
- </body>
+{% endif %}
+
+  <div class="container p-5">
+    <h3>Create your account!</h3>
+    <form method="post" action="{% url 'register_client' %}">
+      {% csrf_token %}
+      <div class="form-group my-3">
+        <label for="fname">First Name *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="fname"
+          name="fname"
+          placeholder="Enter Your First Name"
+          required
+        />
+      </div>
+      <div class="form-group my-3">
+        <label for="lname">Last Name *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lname"
+          name="lname"
+          placeholder="Enter Your Last Name"
+          required
+        />
+      </div>
+      <div class="form-group my-3">
+        <label for="email">Email *</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter Your Email Address"
+          required
+        />
+      </div>
+      <div class="form-group my-3">
+        <label for="email">Location *</label>
+
+        <select
+          name="location"
+          class="form-select border-0"
+          style="height: 55px"
+          id="location"
+        >
+          <option selected>Select Location</option>
+          {% for location in locations %}
+          <option value="{{ location.0}}">{{location.1}}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group my-3">
+        <label for="email">Address *</label>
+        <input
+          type="address"
+          class="form-control"
+          id="address"
+          name="address"
+          placeholder="Enter Your Address"
+          required
+        />
+      </div>
+
+    <div class="form-group my-3">
+            <label >VAT Number</label>
+            <input type="text" class="form-control" id="vat" name="vat" placeholder="VAT NUMBER" />
+        </div>
+
+
+      <div class="form-group my-3">
+        <label for="email">Mobile Number *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="number"
+          name="number"
+          maxlength="8"
+          placeholder="Enter Your Mobile Number"
+          required
+        />
+      </div>
+
+      <div class="form-group my-3">
+        <label for="email">ID Number *</label>
+        <input
+          type="text"
+          class="form-control"
+          id="id_number"
+          name="id_number"
+          maxlength="10"
+          placeholder="Enter Your ID Number"
+          required
+        />
+      </div>
+
+      <div class="form-group my-3">
+        <label for="pass1">Password *</label>
+        <input
+          type="password"
+          class="form-control"
+          id="pass1"
+          name="password1"
+          placeholder="Create Your Password"
+          required
+        />
+      </div>
+      <div class="form-group my-3">
+        <label for="pass2">Confirm Password *</label>
+        <input
+          type="password"
+          class="form-control"
+          id="pass2"
+          name="password2"
+          placeholder="Confirm Your Password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">register</button>
+    </form>
+  </div>
+</body>
 
 {% endblock %}

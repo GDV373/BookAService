@@ -1,0 +1,268 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- About Start -->
+{% if is_user_customer %}
+
+<div class="container-xxl py-5">
+  <div class="container text-center">
+    <h1 class="mt-5 mb-2">Booked Services</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Service Provider</th>
+          <th>Service</th>
+          <th>Car</th>
+          <th>Deliverable Date</th>
+            <th>Request Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in bookings %}
+
+        <tr>
+          <td>{{ booking.service.provider }}</td>
+          <td>{{ booking.service.name }}</td>
+          <td>{{ booking.car.Model}} -- {{ booking.car.NumPlate }}</td>
+          <td>{{ booking.deliver_date}}</td>
+            <td>
+                {% if booking.completed %}
+                      <span class="text-success">
+                      Completed
+                      </span>
+                  {% elif booking.cancelled %}
+                      <span class="text-primary">
+                      Rejected
+                      </span>
+                  {% elif booking.acceptation %}
+                      <span class="text-warning">
+                      In Progress
+                      </span>
+
+                  {% else %}
+                      <span class="text-warning">Pending Acception</span>
+
+                  {% endif %}
+
+              </td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="">
+      <div
+        class="m-5 p-5 bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn"
+        data-wow-delay="0.6s"
+      >
+        <h1 class="text-white mb-4">Book For A Service</h1>
+        <form action="{% url 'bookings' %}" method="post">
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-12 col-sm-6">
+              <select
+                name="provider"
+                class="form-select border-0"
+                style="height: 55px"
+                id="provider"
+              >
+                <option selected>Select A Service Provider</option>
+                {% for provider in providers %}
+                <option value="{{ provider.id }}">{{ provider.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <select
+                class="form-select border-0"
+                name="service"
+                id="service"
+                style="height: 55px"
+              >
+                <option selected>Select A Service</option>
+                {% for service in services %}
+                <option
+                  value="{{ service.id }}"
+                  data-provider="{{ service.provider.id }}"
+                >
+                  {{ service.name }}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <select
+                name="car"
+                class="form-select border-0"
+                style="height: 55px"
+                id="car"
+              >
+                <option selected>Select Your Car</option>
+                {% for car in cars %}
+                <option value="{{ car.id }}">
+                  {{ car.Model }} - {{ car.NumPlate }}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <div class="date" id="date1" data-target-input="nearest">
+                <input
+                  type="text"
+                  name="date"
+                  class="form-control border-0 datetimepicker-input"
+                  placeholder="Service Date"
+                  data-target="#date1"
+                  data-toggle="datetimepicker"
+                  style="height: 55px"
+                />
+              </div>
+            </div>
+            <div class="col-12">
+              <textarea
+                class="form-control border-0"
+                placeholder="Special Request"
+                name="details"
+              ></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-secondary w-100 py-3" type="submit">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <!-- About End -->
+  {% endif %} {% if not is_user_customer %}
+
+  <div class="container-xxl py-5">
+    <div class="container text-center">
+      <h1 class="mt-5 mb-2">In Progress Requests</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Car</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>VAT</th>
+            <th>Mobile</th>
+            <th>Deliverable Date</th>
+              <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in bookings %}
+
+          <tr>
+            <td>{{ booking.service.name }}</td>
+            <td>{{ booking.car.Model}} -- {{ booking.car.NumPlate }}</td>
+              <td>{{ booking.client.user.get_full_name }}</td>
+              <td>{{ booking.client.user.email }}</td>
+              <td>{{ booking.client.Vat_Number }}</td>
+              <td>{{ booking.client.Mobile }}</td>
+            <td>{{ booking.deliver_date}}</td>
+              <td>
+
+                  {% if not booking.completed %}
+                      <span class="text-warning">In Progress</span>
+                  {% endif %}
+
+              </td>
+            <td>
+                {% if not booking.completed %}
+               <a class="btn btn-success" href="{% url 'complete_booking' pk=booking.pk %}">Make it Done</a>
+                {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h1 class="mt-5 mb-2">Pending Requests</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Car</th>
+              <th>Full Name</th>
+            <th>Email</th>
+            <th>VAT</th>
+            <th>Mobile</th>
+            <th>Deliverable Date</th>
+              <th>Special Request</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in pending_bookings %}
+              <tr>
+                <td>{{ booking.service.name }}</td>
+                <td>{{ booking.car.Model}} -- {{ booking.car.NumPlate }}</td>
+                  <td>{{ booking.client.user.get_full_name }}</td>
+              <td>{{ booking.client.user.email }}</td>
+              <td>{{ booking.client.Vat_Number }}</td>
+              <td>{{ booking.client.Mobile }}</td>
+                <td>{{ booking.deliver_date}}</td>
+                  <td>{{ booking.details }}</td>
+                <td>
+                    <a class="btn btn-success" href="{% url 'accept_booking' pk=booking.pk %}">Accept Request</a>
+                    <a class="btn btn-primary" href="{% url 'cancel_booking' pk=booking.pk %}">Cancel Request</a>
+                </td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    <h1 class="mt-5 mb-2">Completed Requests</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Car</th>
+              <th>Full Name</th>
+            <th>Email</th>
+            <th>VAT</th>
+            <th>Mobile</th>
+            <th>Deliverable Date</th>
+              <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in completed_bookings %}
+              <tr>
+                <td>{{ booking.service.name }}</td>
+                <td>{{ booking.car.Model}} -- {{ booking.car.NumPlate }}</td>
+                <td>{{ booking.client.user.get_full_name }}</td>
+              <td>{{ booking.client.user.email }}</td>
+              <td>{{ booking.client.Vat_Number }}</td>
+              <td>{{ booking.client.Mobile }}</td>
+                <td>{{ booking.deliver_date}}</td>
+              <td>
+               <span class="text-success">
+                      Completed
+                      </span>
+            </td>
+
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="container-xxl py-5">{% endif %} {% endblock %}</div>
+</div>
