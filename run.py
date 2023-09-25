@@ -1,14 +1,9 @@
-# import os
-# from flask import Flask, render_template
-# from taskmanager.models import customer
-# #from taskmanager import 
 import os
 from flask import Flask, render_template
 from django.conf import settings
 settings.configure()
 import django
 django.setup()
-#from accounts.models import customer
 
 app = Flask(__name__)
 
