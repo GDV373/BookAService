@@ -1,1 +1,1 @@
-web: gunicorn bookaservice.wsgi 
+web: gunicorn bookaservice.wsgi  --static-map /static=static
