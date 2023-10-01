@@ -69,6 +69,7 @@
                 class="form-select border-0"
                 style="height: 55px"
                 id="provider"
+                required
               >
                 <option selected>Select A Service Provider</option>
                 {% for provider in providers %}
@@ -83,6 +84,7 @@
                 name="service"
                 id="service"
                 style="height: 55px"
+                required
               >
                 <option selected>Select A Service</option>
                 {% for service in services %}
@@ -102,6 +104,7 @@
                 class="form-select border-0"
                 style="height: 55px"
                 id="car"
+                required
               >
                 <option selected>Select Your Car</option>
                 {% for car in cars %}
@@ -122,6 +125,7 @@
                   data-target="#date1"
                   data-toggle="datetimepicker"
                   style="height: 55px"
+                  required
                 />
               </div>
             </div>
