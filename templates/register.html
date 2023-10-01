@@ -55,8 +55,9 @@
           class="form-select border-0"
           style="height: 55px"
           id="location"
+          required
         >
-          <option selected>Select Location</option>
+          <option value="" disabled selected>Select Location</option>
           {% for location in locations %}
           <option value="{{ location.0}}">{{location.1}}</option>
           {% endfor %}
