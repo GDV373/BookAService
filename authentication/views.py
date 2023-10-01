@@ -33,7 +33,7 @@ def loginView(request):
             login(request, user)
             return redirect("dashboard")
         else:
-            messages.error(request, 'Invalid Email or Password.')
+            messages.error(request, "Invalid Email or Password.")
 
     return render(request, "signin.html")
 
@@ -61,7 +61,12 @@ def register_client(request):
 
         if password == password2:
             try:
-                user = User.objects.create_user(email=email, password=password, first_name=first_name, last_name=last_name)
+                user = User.objects.create_user(
+                    email=email,
+                    password=password,
+                    first_name=first_name,
+                    last_name=last_name,
+                )
                 user.save()
                 Customer.objects.create(
                     user=user,
@@ -69,17 +74,17 @@ def register_client(request):
                     ID_number=id_number,
                     Mobile=mobile_number,
                     Address=address,
-                    Vat_Number=var_number
+                    Vat_Number=var_number,
                 )
 
                 user = authenticate(request, email=email, password=password)
                 login(request, user)
                 return redirect("dashboard")
             except IntegrityError:
-                messages.error(request, 'User Already Existed.')
+                messages.error(request, "User Already Existed.")
 
         else:
-            messages.error(request, 'Password Does Not Match')
+            messages.error(request, "Password Does Not Match")
 
         return render(request, "register.html", {"locations": locations})
 
@@ -102,7 +107,12 @@ def register_business(request):
 
         if password == password2:
             try:
-                user = User.objects.create_user(email=email, password=password, first_name=first_name, last_name=last_name)
+                user = User.objects.create_user(
+                    email=email,
+                    password=password,
+                    first_name=first_name,
+                    last_name=last_name,
+                )
                 user.save()
                 Business.objects.create(
                     user=user,
@@ -110,7 +120,7 @@ def register_business(request):
                     name=business_name,
                     Mobile=mobile_number,
                     Address=address,
-                    Vat_Number=var_number
+                    Vat_Number=var_number,
                 )
 
                 user = authenticate(request, email=email, password=password)
@@ -118,10 +128,10 @@ def register_business(request):
                 return redirect("dashboard")
 
             except IntegrityError:
-                messages.error(request, 'User Already Existed.')
+                messages.error(request, "User Already Existed.")
 
         else:
-            messages.error(request, 'Password Does Not Match!')
+            messages.error(request, "Password Does Not Match!")
 
         return render(request, "register_business.html", {"locations": locations})
 
@@ -130,31 +140,32 @@ def register_business(request):
 
 @login_required
 def edit_profile(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = UserProfileForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your profile has been updated.')
+            messages.success(request, "Your profile has been updated.")
             if request.user.is_customer():
-                return redirect('customer_profile')
-            return redirect('business_profile')
+                return redirect("customer_profile")
+            return redirect("business_profile")
     else:
         form = UserProfileForm(instance=request.user)
-    return render(request, 'user_profile_update.html', {'form': form})
+    return render(request, "user_profile_update.html", {"form": form})
 
 
 @login_required
 def password_update(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
-            update_session_auth_hash(request, user)  # Important to update the session with the new password hash
-            messages.success(request, 'Your password has been changed successfully.')
+            update_session_auth_hash(
+                request, user
+            )  # Important to update the session with the new password hash
+            messages.success(request, "Your password has been changed successfully.")
             if request.user.is_customer():
-                return redirect('customer_profile')
-            return redirect('business_profile')
+                return redirect("customer_profile")
+            return redirect("business_profile")
     else:
         form = PasswordChangeForm(request.user)
-    return render(request, 'password_update.html', {'form': form})
-
+    return render(request, "password_update.html", {"form": form})
