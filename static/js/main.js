@@ -123,6 +123,9 @@
             var serviceSelect = document.getElementById('service');
             var carSelect = document.getElementById('car');
             var dateInput = document.querySelector('input[name="date"]');
+
+            // Email validation regular expression
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
       
             // Check if any of the required fields are empty
             if (!providerSelect.value || providerSelect.value === 'Select A Service Provider' ||
