@@ -112,31 +112,28 @@
         }
     });
 
+    // Form validation
     document.addEventListener('DOMContentLoaded', function () {
         // Form validation
         var bookingForm = document.getElementById('booking-form');
         if (bookingForm) { // Check if the form element exists
-            bookingForm.addEventListener('submit', function (event) {
-                // Get the form fields
-                var providerSelect = document.getElementById('provider');
-                var serviceSelect = document.getElementById('service');
-                var carSelect = document.getElementById('car');
-                var dateInput = document.querySelector('input[name="date"]');
-                var emailInput = document.getElementById('email'); // Get the email input field
-    
-                // Email validation regular expression
-                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    
-                // Check if any of the required fields are empty
-                if (!providerSelect.value || providerSelect.value === 'Select A Service Provider' ||
-                    !serviceSelect.value || serviceSelect.value === 'Select A Service' ||
-                    !carSelect.value || carSelect.value === 'Select Your Car' ||
-                    !dateInput.value || !emailPattern.test(emailInput.value)) { // Check if email is valid using the pattern
-                    // Prevent form submission
-                    event.preventDefault();
-    
-                    // Show an error message
-                    alert('Please fill out all required fields correctly before booking.');
+          bookingForm.addEventListener('submit', function (event) {
+            // Get the form fields
+            var providerSelect = document.getElementById('provider');
+            var serviceSelect = document.getElementById('service');
+            var carSelect = document.getElementById('car');
+            var dateInput = document.querySelector('input[name="date"]');
+      
+            // Check if any of the required fields are empty
+            if (!providerSelect.value || providerSelect.value === 'Select A Service Provider' ||
+                !serviceSelect.value || serviceSelect.value === 'Select A Service' ||
+                !carSelect.value || carSelect.value === 'Select Your Car' ||
+                !dateInput.value) {
+              // Prevent form submission
+              event.preventDefault();
+      
+              // Show an error message
+              alert('Please fill out all required fields before booking.');
             }
           });
         }
