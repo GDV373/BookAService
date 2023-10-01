@@ -69,9 +69,8 @@
                 class="form-select border-0"
                 style="height: 55px"
                 id="provider"
-                required
               >
-                <option selected>Select A Service Provider</option>
+                <option value="" disabled selected>Select A Service Provider</option>
                 {% for provider in providers %}
                 <option value="{{ provider.id }}">{{ provider.name }}</option>
                 {% endfor %}
@@ -86,7 +85,7 @@
                 style="height: 55px"
                 required
               >
-                <option selected>Select A Service</option>
+                <option value="" disabled selected>Select A Service</option>
                 {% for service in services %}
                 <option
                   value="{{ service.id }}"
@@ -106,7 +105,7 @@
                 id="car"
                 required
               >
-                <option selected>Select Your Car</option>
+                <option value="" disabled selected>Select Your Car</option>
                 {% for car in cars %}
                 <option value="{{ car.id }}">
                   {{ car.Model }} - {{ car.NumPlate }}
