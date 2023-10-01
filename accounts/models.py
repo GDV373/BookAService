@@ -8,7 +8,7 @@ customer_types = (
     (2, "Business"),
 )
 
-#Diesel, Petrol, Hybrid, Electric
+# Diesel, Petrol, Hybrid, Electric
 FUEL_TYPES = (
     ("diesel", "Diesel"),
     ("petrol", "Petrol"),
@@ -139,8 +139,15 @@ class User(AbstractUser):
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, related_name="customer", on_delete=models.CASCADE)
-    Location = models.CharField(max_length=50, choices=Locations.Malta_Locations, blank=False, null=False)
+    user = models.OneToOneField(
+        User,
+        related_name="customer",
+        on_delete=models.CASCADE)
+    Location = models.CharField(
+        max_length=50,
+        choices=Locations.Malta_Locations,
+        blank=False,
+        null=False)
     Mobile = models.CharField(max_length=8, blank=False)
     Vat_Number = models.CharField(max_length=11, blank=True, null=True)
     ID_number = models.CharField(max_length=10, blank=False, unique=True)
@@ -151,10 +158,17 @@ class Customer(models.Model):
 
 
 class Car(models.Model):
-    owner = models.ForeignKey(Customer, related_name="cars", on_delete=models.CASCADE)
+    owner = models.ForeignKey(
+        Customer,
+        related_name="cars",
+        on_delete=models.CASCADE)
     Brand = models.CharField(max_length=200)
     Model = models.CharField(max_length=200, blank=False)
-    Fuel_Type = models.CharField(blank=False, choices=FUEL_TYPES, default="diesel", max_length=20)
+    Fuel_Type = models.CharField(
+        blank=False,
+        choices=FUEL_TYPES,
+        default="diesel",
+        max_length=20)
     VIN = models.CharField(max_length=200, blank=False)
     NumPlate = models.CharField(max_length=200, blank=False)
 
@@ -163,9 +177,16 @@ class Car(models.Model):
 
 
 class Business(models.Model):
-    user = models.OneToOneField(User, related_name="business", on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        User,
+        related_name="business",
+        on_delete=models.CASCADE)
     name = models.CharField(max_length=200, blank=False)
-    Location = models.CharField(max_length=50, choices=Locations.Malta_Locations, blank=False, null=False)
+    Location = models.CharField(
+        max_length=50,
+        choices=Locations.Malta_Locations,
+        blank=False,
+        null=False)
     Mobile = models.CharField(max_length=8, blank=False)
     Vat_Number = models.CharField(max_length=11, unique=True)
     Address = models.CharField(max_length=200, blank=False)
@@ -176,16 +197,28 @@ class Business(models.Model):
 
 class Service(models.Model):
     name = models.CharField(max_length=200)
-    provider = models.ForeignKey(Business, on_delete=models.CASCADE, related_name="services")
+    provider = models.ForeignKey(
+        Business,
+        on_delete=models.CASCADE,
+        related_name="services")
 
     def __str__(self):
         return self.name
 
 
 class BookService(models.Model):
-    client = models.ForeignKey(Customer, related_name="bookings", on_delete=models.CASCADE)
-    car = models.ForeignKey(Car, related_name="bookings", on_delete=models.CASCADE)
-    service = models.ForeignKey(Service, related_name="bookings", on_delete=models.CASCADE)
+    client = models.ForeignKey(
+        Customer,
+        related_name="bookings",
+        on_delete=models.CASCADE)
+    car = models.ForeignKey(
+        Car,
+        related_name="bookings",
+        on_delete=models.CASCADE)
+    service = models.ForeignKey(
+        Service,
+        related_name="bookings",
+        on_delete=models.CASCADE)
     details = models.TextField(null=True, blank=True)
     deliver_date = models.DateField()
     acceptation = models.BooleanField(default=False)

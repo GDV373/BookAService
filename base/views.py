@@ -48,18 +48,23 @@ def book_service(request):
 
     else:
 
-        bookings = BookService.objects.filter(service__provider__user=request.user)
+        bookings = BookService.objects.filter(
+            service__provider__user=request.user)
         pending_bookings = bookings.filter(cancelled=False)
         completed_bookings = bookings.filter(completed=True)
         print(f"Pending bookings are {pending_bookings}")
 
         context = {
-            "bookings": bookings.filter(acceptation=True).filter(completed=False),
-            'pending_bookings': pending_bookings.filter(completed=False).filter(acceptation=False),
+            "bookings": bookings.filter(
+                acceptation=True).filter(
+                completed=False),
+            'pending_bookings': pending_bookings.filter(
+                completed=False).filter(
+                    acceptation=False),
             'is_user_customer': is_user_customer,
             'completed_bookings': completed_bookings,
-            'rejected_bookings': bookings.filter(cancelled=True)
-        }
+            'rejected_bookings': bookings.filter(
+                cancelled=True)}
     return render(request, "dashboard.html", context)
 
 
@@ -96,5 +101,3 @@ def complete_booking(request, pk):
     booking.completed = True
     booking.save()
     return redirect("bookings")
-
-

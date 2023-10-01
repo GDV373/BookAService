@@ -61,7 +61,11 @@ def register_client(request):
 
         if password == password2:
             try:
-                user = User.objects.create_user(email=email, password=password, first_name=first_name, last_name=last_name)
+                user = User.objects.create_user(
+                    email=email,
+                    password=password,
+                    first_name=first_name,
+                    last_name=last_name)
                 user.save()
                 Customer.objects.create(
                     user=user,
@@ -102,7 +106,11 @@ def register_business(request):
 
         if password == password2:
             try:
-                user = User.objects.create_user(email=email, password=password, first_name=first_name, last_name=last_name)
+                user = User.objects.create_user(
+                    email=email,
+                    password=password,
+                    first_name=first_name,
+                    last_name=last_name)
                 user.save()
                 Business.objects.create(
                     user=user,
@@ -123,7 +131,9 @@ def register_business(request):
         else:
             messages.error(request, 'Password Does Not Match!')
 
-        return render(request, "register_business.html", {"locations": locations})
+        return render(
+            request, "register_business.html", {
+                "locations": locations})
 
     return render(request, "register_business.html", {"locations": locations})
 
@@ -149,12 +159,13 @@ def password_update(request):
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
-            update_session_auth_hash(request, user)  # Important to update the session with the new password hash
-            messages.success(request, 'Your password has been changed successfully.')
+            # Important to update the session with the new password hash
+            update_session_auth_hash(request, user)
+            messages.success(
+                request, 'Your password has been changed successfully.')
             if request.user.is_customer():
                 return redirect('customer_profile')
             return redirect('business_profile')
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'password_update.html', {'form': form})
-
