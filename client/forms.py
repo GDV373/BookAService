@@ -11,7 +11,6 @@ class CarForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # self.fields['Fuel_Type'].widget = forms.Select(choices=Car.FUEL_TYPE_CHOICES)
 
 
 class CarCreateForm(forms.ModelForm):
