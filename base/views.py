@@ -10,7 +10,7 @@ def home(request):
 
 
 def contact(request):
-    return render(request, "contact.html")
+    return render(request, 'contact.html')
 
 
 @login_required
@@ -30,7 +30,7 @@ def book_service(request):
                 car=Car.objects.get(pk=int(car)),
                 service=Service.objects.get(pk=int(service)),
                 details=details,
-                deliver_date=deliver_date,
+                deliver_date=deliver_date
             )
 
         businesses = Business.objects.all()
@@ -43,7 +43,7 @@ def book_service(request):
             "services": services_available,
             "cars": cars,
             "bookings": bookings,
-            "is_user_customer": is_user_customer,
+            'is_user_customer': is_user_customer
         }
 
     else:
@@ -55,12 +55,10 @@ def book_service(request):
 
         context = {
             "bookings": bookings.filter(acceptation=True).filter(completed=False),
-            "pending_bookings": pending_bookings.filter(completed=False).filter(
-                acceptation=False
-            ),
-            "is_user_customer": is_user_customer,
-            "completed_bookings": completed_bookings,
-            "rejected_bookings": bookings.filter(cancelled=True),
+            'pending_bookings': pending_bookings.filter(completed=False).filter(acceptation=False),
+            'is_user_customer': is_user_customer,
+            'completed_bookings': completed_bookings,
+            'rejected_bookings': bookings.filter(cancelled=True)
         }
     return render(request, "dashboard.html", context)
 
@@ -72,11 +70,11 @@ def services(request):
 
 
 def about(request):
-    return render(request, "about.html")
+    return render(request, 'about.html')
 
 
 def signin_page(request):
-    return render(request, "signinpage.html")
+    return render(request, 'signinpage.html')
 
 
 def cancel_booking(request, pk):
@@ -98,3 +96,5 @@ def complete_booking(request, pk):
     booking.completed = True
     booking.save()
     return redirect("bookings")
+
+
