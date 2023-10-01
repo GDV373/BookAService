@@ -83,29 +83,9 @@ WSGI_APPLICATION = 'bookaservice.wsgi.application'
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#      'default': {
-#          'ENGINE': 'django.db.backends.sqlite3',
-#          'NAME': BASE_DIR / 'db.sqlite3',
-#      }
-#  }
 
 MYSQLCLIENT_CFLAGS = os.environ.get('MYSQLCLIENT_CFLAGS', '')
 MYSQLCLIENT_LDFLAGS = os.environ.get('MYSQLCLIENT_LDFLAGS', '')
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'accounts',
-#         'USER': 'sb5mwlpdn7xc57zw',
-#         'PASSWORD': 'qjiz27754o7tyif7',
-#         'HOST': 'oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
-#         'PORT': '3306',
-#     }
-# }
 
 
 DATABASES = {
@@ -148,14 +128,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#     }
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -186,13 +158,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR , "static"),
 ]
 
-# Media files (uploads, user-generated content)
-
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]	
-
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
