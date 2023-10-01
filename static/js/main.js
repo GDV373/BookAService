@@ -112,10 +112,9 @@
         }
     });
 
-    // Form validation
     document.addEventListener('DOMContentLoaded', function () {
         // Form validation
-        var bookingForm = document.getElementById('booking-form');
+        var bookingForm = document.querySelector('form[name="booking-form"]');
         if (bookingForm) { // Check if the form element exists
           bookingForm.addEventListener('submit', function (event) {
             // Get the form fields
@@ -123,20 +122,28 @@
             var serviceSelect = document.getElementById('service');
             var carSelect = document.getElementById('car');
             var dateInput = document.querySelector('input[name="date"]');
+            var emailInput = document.getElementById('email');
       
-            // Check if any of the required fields are empty
+            // Check if any of the required fields are empty or not selected
             if (!providerSelect.value || providerSelect.value === 'Select A Service Provider' ||
-                !serviceSelect.value || serviceSelect.value === 'Select A Service' ||
-                !carSelect.value || carSelect.value === 'Select Your Car' ||
-                !dateInput.value) {
+              !serviceSelect.value || serviceSelect.value === 'Select A Service' ||
+              !carSelect.value || carSelect.value === 'Select Your Car' ||
+              !dateInput.value || !emailInput.value) {
               // Prevent form submission
               event.preventDefault();
       
               // Show an error message
               alert('Please fill out all required fields before booking.');
             }
+            // Check email format
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(emailInput.value)) {
+              event.preventDefault();
+              alert('Please enter a valid email address.');
+            }
           });
         }
       });
+      
 
 })(jQuery);
