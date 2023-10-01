@@ -114,36 +114,46 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         // Form validation
-        var bookingForm = document.querySelector('form[name="booking-form"]');
-        if (bookingForm) { // Check if the form element exists
-          bookingForm.addEventListener('submit', function (event) {
-            // Get the form fields
-            var providerSelect = document.getElementById('provider');
-            var serviceSelect = document.getElementById('service');
-            var carSelect = document.getElementById('car');
-            var dateInput = document.querySelector('input[name="date"]');
-            var emailInput = document.getElementById('email');
-      
-            // Check if any of the required fields are empty or not selected
-            if (!providerSelect.value || providerSelect.value === 'Select A Service Provider' ||
-              !serviceSelect.value || serviceSelect.value === 'Select A Service' ||
-              !carSelect.value || carSelect.value === 'Select Your Car' ||
-              !dateInput.value || !emailInput.value) {
-              // Prevent form submission
-              event.preventDefault();
-      
-              // Show an error message
-              alert('Please fill out all required fields before booking.');
-            }
-            // Check email format
-            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if (!emailPattern.test(emailInput.value)) {
-              event.preventDefault();
-              alert('Please enter a valid email address.');
-            }
-          });
+        var registerForm = document.querySelector('form'); // Get the form element
+        if (registerForm) {
+            registerForm.addEventListener('submit', function (event) {
+                // Get the form fields
+                var fnameInput = document.getElementById('fname');
+                var lnameInput = document.getElementById('lname');
+                var emailInput = document.getElementById('email');
+                var locationSelect = document.getElementById('location');
+                var addressInput = document.getElementById('address');
+                var vatInput = document.getElementById('vat');
+                var numberInput = document.getElementById('number');
+                var idNumberInput = document.getElementById('id_number');
+                var pass1Input = document.getElementById('pass1');
+                var pass2Input = document.getElementById('pass2');
+    
+                // Regular expression for email validation
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    
+                // Check if any of the required fields are empty
+                if (
+                    !fnameInput.value ||
+                    !lnameInput.value ||
+                    !locationSelect.value ||
+                    !addressInput.value ||
+                    !numberInput.value ||
+                    !idNumberInput.value ||
+                    !pass1Input.value ||
+                    !pass2Input.value
+                ) {
+                    // Prevent form submission
+                    event.preventDefault();
+                    alert('Please fill out all required fields before registering.');
+                } else if (!emailPattern.test(emailInput.value)) {
+                    // Check if the email format is valid
+                    event.preventDefault();
+                    alert('Please enter a valid email address.');
+                }
+            });
         }
-      });
+    });
+    
       
-
 })(jQuery);
