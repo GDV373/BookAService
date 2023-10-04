@@ -82,7 +82,14 @@ def signin_page(request):
     return render(request, 'signinpage.html')
 
 def custom_505_handler(request, exception=None):
-    return render(request, '404.html', status=404)
+    return render(request, 'page_404.html', status=404)
+
+
+def custom_error_handler(request, exception=None):
+    if exception is None:
+        return render(request, 'page_404.html', status=404)
+    else:
+        return render(request, 'page_404.html', status=404)
 
 def cancel_booking(request, pk):
     booking = BookService.objects.get(pk=pk)

@@ -45,7 +45,14 @@ def delete_account(request):
     return redirect("dashboard")
 
 def custom_505_handler(request, exception=None):
-    return render(request, '404.html', status=404)
+    return render(request, 'page_404.html', status=404)
+
+
+def custom_error_handler(request, exception=None):
+    if exception is None:
+        return render(request, 'page_404.html', status=404)
+    else:
+        return render(request, 'page_404.html', status=404)
 
 def register_client(request):
     locations = Locations.Malta_Locations

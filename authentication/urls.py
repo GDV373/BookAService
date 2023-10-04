@@ -1,10 +1,12 @@
 from django.urls import path
 from authentication.views import (
     loginView, delete_account, register_client, register_business,
-    logout_view, edit_profile, password_update, custom_505_handler
+    logout_view, edit_profile, password_update, custom_505_handler,
+    custom_error_handler
 )
 
-handler505 = custom_505_handler
+handler505 = custom_error_handler
+handler404 = custom_error_handler
 
 urlpatterns = [
     path('login/', loginView, name="login"),
