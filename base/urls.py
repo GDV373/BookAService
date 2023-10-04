@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import *
 
+handler505 = custom_505_handler
+
 urlpatterns = [
     path('bookings/', book_service, name="bookings"),
     path('', home, name="dashboard"),
