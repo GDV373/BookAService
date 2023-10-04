@@ -5,8 +5,8 @@ from authentication.views import (
     custom_error_handler
 )
 
-handler505 = custom_error_handler
-handler404 = custom_error_handler
+handler505 = 'authentication.views.custom_505_handler'
+handler404 = 'authentication.views.custom_error_handler'
 
 urlpatterns = [
     path('login/', loginView, name="login"),
