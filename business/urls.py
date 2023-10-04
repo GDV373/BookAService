@@ -1,5 +1,13 @@
 from django.urls import path
 from .views import *
+from authentication.views import (
+    custom_505_handler,
+    custom_error_handler
+)
+
+handler505 = 'authentication.views.custom_505_handler'
+handler404 = 'authentication.views.custom_error_handler'
+
 
 urlpatterns = [
     path("manage_services/", service_crud, name="service_list"),
