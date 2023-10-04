@@ -3,6 +3,10 @@ from django.contrib.auth.decorators import login_required
 from accounts.models import Service
 from accounts.models import Business
 from .forms import BusinessForm
+from authentication.views import (
+    custom_505_handler,
+    custom_error_handler
+)
 
 
 def custom_505_handler(request, exception=None):
