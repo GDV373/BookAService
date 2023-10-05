@@ -30,18 +30,18 @@ The live site can be found here: [BookAService](https://bookaservice-32a4c779d8f
 
 The user stories used as part of the planning for the website have been consolidated here.
 
-- As an unregistred user I can view the website home, about and contact pages
-- As an unregistred user I can register to be ither as a busniess or a customer
-- As an customer user I can change my settings of my account and delete it while logged in
-- As an customer user I can register,remove and change details of any car while logged in
-- As an customer user I can book from the dashbord page with any registered business while logged in
-- As an customer user I can view the status in the dashbord of all bookings while logged in
-- As an customer user I can log out of the account any time while logged in
-- As an business user I can change my settings of my account and delete it while logged in
-- As an business user I can change my services, update or delete them while logged in
-- As an business user I can view all requests from the dashbord and change the actons as needed it while logged in
-- As an business user I can view all completed requests from the dashbord while logged in
-- As an business user I can log out of the account any time while logged in
+- As an unregistered user I can view the website home, about and contact pages
+- As an unregistered user I can register to be either as a business or a customer
+- As a customer user I can change my settings of my account and delete it while logged in
+- As a customer user I can register,remove and change details of any car while logged in
+- As a customer user I can book from the dashboard page with any registered business while logged in
+- As a customer user I can view the status in the dashboard of all bookings while logged in
+- As a customer user I can log out of the account any time while logged in
+- As a business user I can change my settings of my account and delete it while logged in
+- As a business user I can change my services, update or delete them while logged in
+- As a business user I can view all requests from the dashboard and change the actons as needed it while logged in
+- As a business user I can view all completed requests from the dashboard while logged in
+- As a business user I can log out of the account any time while logged in
 
 
 # Features
@@ -56,9 +56,9 @@ The user stories used as part of the planning for the website have been consolid
 
 The navigation bar is featured across all pages.
 
-For unregistered or logged out users of the site, the navbar displays links to "Log in / Register", "About" and "Contact", with the "Log in / Register" link opening a new page when clicked on, listing the options of registration or login.There is also social media links, adress of website owner, opening hours and contact number.
+For unregistered or logged-out users of the site, the navbar displays links to "Log in / Register", "About" and "Contact", with the "Log in / Register" link opening a new page when clicked on, listing the options of registration or login.There is also social media links, adress of website owner, opening hours and contact number.
 
-For registered users of the site, the respective tabs show with the options needed to opearate there account
+For registered users of the site, the respective tabs show with the options needed to operate there account
 
 The navbar is a free to use bootstrap5 from [themewagon.com](https://themewagon.com/themes/free-html5-bootstrap-5-business-website-template-carserv/)
 
@@ -72,26 +72,26 @@ The navbar is a free to use bootstrap5 from [themewagon.com](https://themewagon.
 
 The footer is featured across all pages.
 
-The footer features a standart adress information with social media links next to the opening hours. Then there are the services showing a few service what can be found and a newsletter that is currently on comming soon. At the bottom there are copyrights tags on the left and on the right there are the Home button FAQ`s and a button to go to the top of the page quickly.
+The footer features a standard address information with social media links next to the opening hours. Then there are the services showing a few service what can be found and a newsletter that is currently on comming soon. At the bottom there are copyrights tags on the left and on the right there are the Home button FAQ`s and a button to go to the top of the page quickly.
 
 ### Home Page
 
 <details>
 <summary>Home Page Unregistered</summary>
 
-![Home Page]()
+![Home Page](readme-docs/images/HomePageNotLoggedIn.jpg)
 </details>
 
 <details>
 <summary>Home Page Logged In as customer</summary>
 
-![Home Page]()
+![Home Page](readme-docs/images/HomePageLoggedInAsCustomer.jpg)
 </details>
 
 <details>
 <summary>Home Page Logged In as business</summary>
 
-![Home Page]()
+![Home Page](readme-docs/images/HomePageLoggedInAsBusiness.jpg)
 </details>
 
 The Home page has three states depending on the user.
@@ -194,7 +194,7 @@ While trying to stay as true to life as possible, regular registered users have 
 
 
 ## Colour
-![Colour Palette](readme-docs/palette.webp)
+![Colour Palette]()
 
 A blue colour palette was used for this project based on the association of the colour with healthcare. The main background colour is a white with a hint of blue to give a clean appearance. The main font colour is almost black to aid readability. A secondary font colour of dark blue was used for text in the header and footer to keep with the style. Buttons and links are styled in lighter shades of blue to stand out and indicate interactivity.
 
