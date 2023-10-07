@@ -81,9 +81,8 @@ def about(request):
 def signin_page(request):
     return render(request, 'signinpage.html')
 
-
-def custom_500_handler(request, exception=None):
-    return render(request, 'page_404.html', status=500)
+def custom_505_handler(request, exception=None):
+    return render(request, 'page_404.html', status=404)
 
 
 def custom_error_handler(request, exception=None):

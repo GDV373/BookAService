@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
 from authentication.views import (
-    custom_500_handler,
+    custom_505_handler,
     custom_error_handler
 )
 
-handler500 = 'authentication.views.custom_500_handler'
+handler505 = 'authentication.views.custom_505_handler'
 handler404 = 'authentication.views.custom_error_handler'
 
 urlpatterns = [

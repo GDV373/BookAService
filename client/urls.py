@@ -1,15 +1,5 @@
 from django.urls import path
 from .views import car_crud, customer_profile, customer_profile_update
-from authentication.views import (
-    custom_500_handler,
-    custom_error_handler
-)
-
-handler500 = 'authentication.views.custom_500_handler'
-handler404 = 'authentication.views.custom_error_handler'
-handler500 = 'authentication.views.custom_500_handler'
-handler404 = 'authentication.views.custom_error_handler'
-
 
 urlpatterns = [
     path("cars/", car_crud, name="car_list"),

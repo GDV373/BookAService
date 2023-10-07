@@ -4,14 +4,13 @@ from accounts.models import Service
 from accounts.models import Business
 from .forms import BusinessForm
 from authentication.views import (
-    custom_500_handler,
+    custom_505_handler,
     custom_error_handler
 )
 
 
-def custom_500_handler(request, exception=None):
-    return render(request, 'page_404.html', status=500)
-
+def custom_505_handler(request, exception=None):
+    return render(request, 'page_404.html', status=404)
 
 
 def custom_error_handler(request, exception=None):

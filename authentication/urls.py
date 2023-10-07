@@ -1,11 +1,11 @@
 from django.urls import path
 from authentication.views import (
     loginView, delete_account, register_client, register_business,
-    logout_view, edit_profile, password_update, custom_500_handler,
+    logout_view, edit_profile, password_update, custom_505_handler,
     custom_error_handler
 )
 
-handler500 = 'authentication.views.custom_500_handler'
+handler505 = 'authentication.views.custom_505_handler'
 handler404 = 'authentication.views.custom_error_handler'
 
 urlpatterns = [
@@ -17,4 +17,3 @@ urlpatterns = [
     path('profile/edit/', edit_profile, name='edit_profile'),
     path('password_update/', password_update, name='password_update'),
 ]
-
