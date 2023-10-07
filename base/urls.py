@@ -1,12 +1,11 @@
 from django.urls import path
 from .views import *
 from authentication.views import (
-    custom_505_handler,
+    custom_500_handler,
     custom_error_handler
 )
 
-
-handler505 = 'authentication.views.custom_505_handler'
+handler500 = 'authentication.views.custom_500_handler'
 handler404 = 'authentication.views.custom_error_handler'
 
 urlpatterns = [
@@ -20,3 +19,4 @@ urlpatterns = [
     path('accept_booking/<str:pk>/', accept_booking, name="accept_booking"),
     path('complete_booking/<str:pk>/', complete_booking, name="complete_booking"),
 ]
+
