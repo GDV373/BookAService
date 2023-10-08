@@ -17,6 +17,6 @@ urlpatterns = [
     path('signinpage/', signin_page, name="signinpage"),
     path('cancel_booking/<str:pk>/', cancel_booking, name="cancel_booking"),
     path('accept_booking/<str:pk>/', accept_booking, name="accept_booking"),
-    path('complete_booking/<str:pk>/', complete_booking, name="complete_booking"),
+    path('complete_booking/<str:pk>/',
+         complete_booking, name="complete_booking"),
 ]
-

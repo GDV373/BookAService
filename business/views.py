@@ -13,7 +13,6 @@ def custom_500_handler(request, exception=None):
     return render(request, 'page_404.html', status=500)
 
 
-
 def custom_error_handler(request, exception=None):
     if exception is None:
         return render(request, 'page_404.html', status=404)
@@ -81,4 +80,3 @@ def business_update(request, pk):
     else:
         form = BusinessForm(instance=business)
     return render(request, 'business_profile_update.html', {'form': form})
-    

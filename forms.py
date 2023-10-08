@@ -2,7 +2,8 @@ from django import forms
 from django.core.validators import EmailValidator, RegexValidator
 from django.core.exceptions import ValidationError
 
-# Start Test Customer form 
+
+# Start Test Customer form
 class CustomerRegistrationForm(forms.Form):
     fname = forms.CharField(max_length=255, required=True)
     lname = forms.CharField(max_length=255, required=True)
@@ -29,10 +30,10 @@ class CustomerRegistrationForm(forms.Form):
         if password1 and password2 and password1 != password2:
             raise ValidationError("Passwords do not match.")
 
-# End Test Customer form 
+# End Test Customer form
 
 
-# Start Test Business form 
+# Start Test Business form
 class BusinessRegistrationForm(forms.Form):
     fname = forms.CharField(max_length=255, required=True)
     lname = forms.CharField(max_length=255, required=True)
@@ -51,7 +52,11 @@ class BusinessRegistrationForm(forms.Form):
         message="VAT must follow the format MT1245-1245"
     )
 
-    vat = forms.CharField(max_length=255, required=True, validators=[vat_validator])
+    vat = forms.CharField(
+        max_length=255,
+        required=True,
+        validators=[vat_validator]
+    )
     businessname = forms.CharField(max_length=255, required=True)
     number = forms.CharField(max_length=8, required=True)
     id_number = forms.CharField(max_length=10, required=True)
@@ -66,4 +71,4 @@ class BusinessRegistrationForm(forms.Form):
         if password1 and password2 and password1 != password2:
             raise ValidationError("Passwords do not match.")
 
-# End Test Business form 
+# End Test Business form

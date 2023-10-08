@@ -2,10 +2,11 @@ from django.test import TestCase
 from forms import CustomerRegistrationForm
 from forms import BusinessRegistrationForm
 
-# Start Test Customer form 
+# Start Test Customer form
+
 
 class CustomerRegistrationFormTest(TestCase):
-            
+
     def test_fname_required(self):
         form = CustomerRegistrationForm(data={
             'lname': 'Doe',
@@ -19,7 +20,7 @@ class CustomerRegistrationFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertTrue(form.has_error('fname', code='required'))
-    
+
     def test_lname_required(self):
         form = CustomerRegistrationForm(data={
             'fname': 'John',
@@ -33,7 +34,7 @@ class CustomerRegistrationFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertTrue(form.has_error('lname', code='required'))
-    
+
     def test_email_required(self):
         form = CustomerRegistrationForm(data={
             'fname': 'John',
@@ -47,7 +48,7 @@ class CustomerRegistrationFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertTrue(form.has_error('email', code='required'))
-    
+
     def test_email_valid_format(self):
         form = CustomerRegistrationForm(data={
             'fname': 'John',
@@ -62,7 +63,7 @@ class CustomerRegistrationFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertTrue(form.has_error('email', code='invalid'))
-    
+
     def test_location_required(self):
         form = CustomerRegistrationForm(data={
             'fname': 'John',
@@ -76,7 +77,7 @@ class CustomerRegistrationFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertTrue(form.has_error('location', code='required'))
-    
+
     def test_address_required(self):
         form = CustomerRegistrationForm(data={
             'fname': 'John',
@@ -90,7 +91,7 @@ class CustomerRegistrationFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertTrue(form.has_error('address', code='required'))
-    
+
     def test_vat_not_required(self):
         form = CustomerRegistrationForm(data={
             'fname': 'John',
@@ -104,7 +105,7 @@ class CustomerRegistrationFormTest(TestCase):
             'password2': 'password123'
         })
         self.assertTrue(form.is_valid())
-    
+
     def test_number_required(self):
         form = CustomerRegistrationForm(data={
             'fname': 'John',
@@ -118,7 +119,7 @@ class CustomerRegistrationFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertTrue(form.has_error('number', code='required'))
-    
+
     def test_id_number_required(self):
         form = CustomerRegistrationForm(data={
             'fname': 'John',
@@ -132,7 +133,7 @@ class CustomerRegistrationFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertTrue(form.has_error('id_number', code='required'))
-    
+
     def test_passwords_match(self):
         form = CustomerRegistrationForm(data={
             'fname': 'John',
@@ -149,9 +150,10 @@ class CustomerRegistrationFormTest(TestCase):
         self.assertIn('__all__', form.errors)
         self.assertEqual(form.errors['__all__'], ['Passwords do not match.'])
 
-# End Test Customer form 
+# End Test Customer form
 
-# Start Test Business form 
+# Start Test Business form
+
 
 class BusinessRegistrationFormTest(TestCase):
     def test_required_fields(self):
@@ -228,7 +230,7 @@ class BusinessRegistrationFormTest(TestCase):
 
         form = BusinessRegistrationForm(data=form_data)
         self.assertTrue(form.is_valid())
-        
+
     def test_password_matching(self):
         form_data = {
             'fname': 'John',
@@ -249,7 +251,6 @@ class BusinessRegistrationFormTest(TestCase):
         self.assertIn('__all__', form.errors)
         self.assertEqual(form.errors['__all__'], ['Passwords do not match.'])
 
-
     def test_valid_form(self):
         form_data = {
             'fname': 'John',
@@ -268,4 +269,4 @@ class BusinessRegistrationFormTest(TestCase):
         form = BusinessRegistrationForm(data=form_data)
         self.assertTrue(form.is_valid())
 
-# End Test Business form 
+# End Test Business form

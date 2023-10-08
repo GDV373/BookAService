@@ -9,10 +9,9 @@ from accounts.models import Customer, User
 
 class ViewsTestCase(TestCase):
     def test_get_home_page(self):
-        response = self.client.get('/' , follow=True)
+        response = self.client.get('/', follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html', 'base.html')
-
 
     def test_about_page(self):
         response = self.client.get('/about/', follow=True)
@@ -32,7 +31,9 @@ class ViewsTestCase(TestCase):
     def test_service_garage_register_page(self):
         response = self.client.get('/register_business/', follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'register_business.html', 'base.html')
+        self.assertTemplateUsed(response,
+                                'register_business.html',
+                                'base.html')
 
     def test_login_page(self):
         response = self.client.get('/login/', follow=True)
@@ -43,7 +44,3 @@ class ViewsTestCase(TestCase):
         response = self.client.get('/signinpage/', follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'signinpage.html', 'base.html')
-
- 
-
- 

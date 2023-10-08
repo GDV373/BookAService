@@ -92,6 +92,7 @@ def custom_error_handler(request, exception=None):
     else:
         return render(request, 'page_404.html', status=404)
 
+
 def cancel_booking(request, pk):
     booking = BookService.objects.get(pk=pk)
     booking.cancelled = True

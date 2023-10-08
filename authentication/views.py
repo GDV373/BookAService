@@ -44,6 +44,7 @@ def delete_account(request):
     user.delete()
     return redirect("dashboard")
 
+
 def custom_500_handler(request, exception=None):
     return render(request, 'page_404.html', status=500)
 
