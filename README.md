@@ -1,4 +1,5 @@
 # BookAService
+![BookaService Website mock](readme-docs/images/website_device_mockup.png)
 
 BookAService is a website designed for business and customers to register. While Business can share there available services and customers can book services that they need.
 
@@ -225,7 +226,7 @@ Wireframes were created in Balsamiq. They were used for initial planning of temp
 </details>
 
 <details>
-<summary>>Business Logged in DashBoard Wireframe</summary>
+<summary>Business Logged in DashBoard Wireframe</summary>
 
 ![Business Logged in DashBoard Wireframe](readme-docs/images/WireFrames/busis_logged_in_dashbord.png)
 </details>
