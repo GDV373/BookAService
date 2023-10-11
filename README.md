@@ -16,8 +16,6 @@ The live site can be found here: [BookAService](https://bookaservice-32a4c779d8f
 - [User Experience]()
 - [Features]()
   - [General]()
-  - [VetProfiles]()
-  - [Records]()
 - [Design]()
 - [Technologies Used]()
 - [Testing](TESTING.md)
@@ -111,10 +109,7 @@ For logged in accounts the top nav bar will display new tabs to use the websites
 
 The about page is available for users who are not registered or who are not logged in through a link in the navbar. 
 
-The primary purpose is to act as marketing for the site for users who are learning about the site. The first section features a paragraph of text describing the site and it's worth to the user, and a list of "Benefits". The second section features more in depth descriptions about the benefits of the site and explains how the site's features meet those benefits.
-
-On larger screens, the about page is displayed in rows with the contents displayed as alternating columns of text and promotional material. On smaller screens, page is displayed as alternating rows of text and promotional material. 
-
+The primary purpose is to act as marketing for the site for users and business who are learning about the site. This can intise them to register and increase the popularity of the site to see what they can offer or how to increase there business.
 ### Contact Page
 
 <details>
@@ -125,8 +120,6 @@ On larger screens, the about page is displayed in rows with the contents display
 
 The contact page is available to all users through a link in the navbar for users who are not logged in or a link in the footer for those who are It features a simple form that requires the name, email and message from the user. It sends the message to the site owner and provides the user with feedback by displaying "Message sent."
 
-## Vet Profiles
-
 ### Registration Page
 
 <details>
@@ -135,11 +128,7 @@ The contact page is available to all users through a link in the navbar for user
 ![Registration]()
 </details>
 
-The registration page is accessible through a "Sign Up" link in the navbar or "Register" CTA button on the index page for users who are not logged in. The page features a simple form that requires the users "Email", "First Name", "Last Name", "Password" and "Confirm Password". 
-
-If the user attempts to register while leaving any of the fields blank, they are prompted to fill in the missing field. If the user attempts to register with an email that is already registered, they are given a message that the email is already in use. If the user attempts to register without the passwords matching, they are given a message that the password fields don't match. 
-
-When the user registers, they are logged in and redirected to the index page where they are informed their account is awaiting approval.
+The registration page is accessible through all areas of the site this will guide them to register and inform them in which area they should register. This ismple design make it easy to figur out and reduces the need of extra pages.
 
 ### Login Page
 
@@ -149,59 +138,44 @@ When the user registers, they are logged in and redirected to the index page whe
 ![Login]()
 </details>
 
-The login page is accessible through a "Sign In" link in the navbar or "Login" CTA button on the index page for users who are not logged in. The page features a simple form that requires the user's "Email" and "Password". If the user attempts to submit an empty field, they are prompted to fill in the required field. If the user's credentials are invalid, they are given a message that their login is invalid.
-
-When the user logs in, they are redirected to their profile if their account is active. If their account is not active, the user is redirected to the index page informing them that their account is awaiting approval.
+The login page is accessible through the same page where the registration page is. This will lead them to the sign in page. This design also helps the Users and businesses that registered to loggin from one simple page. The bakend service will identify
+what the email is under and display the correct tabs and feautres they need.
 
 ### Profile
 
 <details>
 <summary>Profile</summary>
 
-![Profile]()
+![Dashboard]()
 </details>
+The Dashbaord will also change from customers to business. This page will show bookings that were sent to the business. From here they can accept or cancel requests, set requests to done once ready and see a history of completed requests.
+While the customers will have a list of what books they have with the propper status and the ability to book other services.
 
-The user profile page is available for users who are registered and whose account has been set to active by the admin. Each user can only view their own profile. The profile page features two sections.
 
-The first section includes the heading "Profile for {user name}", where the user's first and last name are present to provide feedback to the user that they are viewing their own profile. Below the heading, the user's details are displayed: "Name", "Surname" and "Email Address". Below this, an "Edit Profile" button allows the user to edit their details. On large screens, "Go To:" with links to "Animal Records" and "Available Drugs" is displayed on the right of the screen next to the user's details. On smaller screens, the links are present below the "Edit Profile" button.
-
-The second section features the user's "Prescription History" which displays the list of their prescriptions. Below the "Prescription History" heading, there is a line of text that explains to the user the restrictions on editing and deleting prescriptions. Below this, the prescriptions are presented in a table ordered by date, starting with the most recent. 
-
-On larger screens, the table includes the details "Animal", "Dose", "Drug", "Date" and "View". On smaller screens, the details on the table include "Animal", "Date" and "View". "Animal" is the animal's full name, "Dose" is the dosage of the drug that was administered, "Drug" is the drug's name, "Date" is the date the prescription was created and "View" is a link to the full details of the prescription. The details provided in the table are intended to provide just enough context so that user can find previous prescriptions. They can then click "View" to review the prescription in more details.
-
-### Edit Profile
+### Settings
 
 <details>
-<summary>Edit Profile</summary>
+<summary>Settings</summary>
 
-![Edit Profile]()
+![Settings]()
 </details>
 
-The edit profile button on the user's profile navigates to the "Edit Profile" form which is prepopulated with the current user's details. The user is able to change their email, name and surname through this form. All fields are required and the user is prompted to fill an empty field if they attempt to submit the form with empty fields. 
-
-The user is able to change their email, but only to another email which is not currently registered on the site. They will receive a message that the email is already in use if they attempt to do so and the form will reset to their
-current details.
+The settings page is where all users are able to change there details any time they need to and update the password for there accounts. This page will also adapt to the users details from there initial registration.
 
 
 # Design
 
-The concept for PetRx was a professional site for veterinarians to prescribe medication for their patients. As such, the aim of the design was a clean, easy to use site where information was clearly displayed and easy to understand.
-
+The concept for bookaservice was a profersional site for people to be able to find and offer services. The clean and simple design of the page is structured to guide all users to there desired need as easy as possable.
 
 ## CRUD Functionality
 
-While trying to stay as true to life as possible, regular registered users have the ability to create, view, edit and delete prescriptions for animals. In real life, these types of records are protected and, once administered, a vet would not be allowed to alter or delete an existing prescription as it is an important part of an animal's medical history. As a middle ground, it was decided to provide users the ability to edit and delete prescriptions within a 24 hour window to provide CRUD functionality while maintaining an air of realism. As mentioned in "Future Features", this is something to be addressed in future iterations.
-
+While trying to satisfty most possable needs to cater all the needs from both customers and businesses the avalabilty to view edit create and delete is possable thru out most of the nessasery infomration to make sure its possable to keep up to date with
+minimal need to redo or re-create services and ussers.
 
 ## Colour
 ![Colour Palette]()
 
-A blue colour palette was used for this project based on the association of the colour with healthcare. The main background colour is a white with a hint of blue to give a clean appearance. The main font colour is almost black to aid readability. A secondary font colour of dark blue was used for text in the header and footer to keep with the style. Buttons and links are styled in lighter shades of blue to stand out and indicate interactivity.
-
-
-## Typography
-
-Fira Sans and Rubik were imported from Google Fonts. They were chosen for their readability and similarity, to create easily legible content that is pleasant to read without being distracting.
+A red, black white colour palette was used for this project based on the template that was used for this project. The main background colour is a white with a hint of black text to give a clean appearance and easy on the eye`s. Buttons have different colors to infor the user that these are special buttons that can offer a type of function depending on the need.
 
 
 ## Wireframes
@@ -209,75 +183,68 @@ Fira Sans and Rubik were imported from Google Fonts. They were chosen for their 
 Wireframes were created in Balsamiq. They were used for initial planning of template layouts.
 
 <details>
-<summary>Index Wireframe</summary>
+<summary>Home Wireframe</summary>
 
-![Index Wireframe](readme-docs/wireframe/index-wf.webp)
+![Home Wireframe](readme-docs/images/WireFrames/home_page.png)
 </details>
 
 <details>
 <summary>About Wireframe</summary>
 
-![About Wireframe](readme-docs/wireframe/about-wf.webp)
+![About Wireframe](readme-docs/images/WireFrames/about_page.png)
 </details>
 
 <details>
 <summary>Contact Wireframe</summary>
 
-![Contact Wireframe](readme-docs/wireframe/contact-wf.webp)
+![Contact Wireframe](readme-docs/images/WireFrames/contact_us_page.png)
 </details>
 
 <details>
-<summary>Register Wireframe</summary>
+<summary>All user settings Wireframe</summary>
 
-![Register Wireframe](readme-docs/wireframe/register-wf.webp)
+![All user settings Wireframe](readme-docs/images/WireFrames/all_user_settings.png)
 </details>
 
 <details>
-<summary>Login Wireframe</summary>
+<summary>Customer Dashbord Wireframe</summary>
 
-![Login Wireframe](readme-docs/wireframe/signin-wf.webp)
+![Customer Dashbord Wireframe](readme-docs/images/WireFrames/user_dashbord.png)
 </details>
 
 <details>
-<summary>Vet Profile Wireframe</summary>
+<summary>Customer Manage Cars Wireframe</summary>
 
-![Vet Profile Wireframe](readme-docs/wireframe/user-profile-wf.webp)
+![Customer Manage Cars Wireframe](readme-docs/images/WireFrames/cust_logged_in_manage_cars.png)
 </details>
 
 <details>
-<summary>Records Wireframe</summary>
+<summary>Business Manage Services Wireframe</summary>
 
-![Records Wireframe](readme-docs/wireframe/records-wf.webp)
+![Business Manage Services Wireframe](readme-docs/images/WireFrames/busis_logged_in_manage_service.png)
 </details>
 
 <details>
-<summary>Animal Record Wireframe</summary>
+<summary>>Business Logged in DashBoard Wireframe</summary>
 
-![Animal Record Wireframe](readme-docs/wireframe/animal-profile-wf.webp)
-</details>
-
-<details>
-<summary>Prescribe Wireframe</summary>
-
-![Prescribe Wireframe](readme-docs/wireframe/prescribe-wf.webp)
+![Business Logged in DashBoard Wireframe](readme-docs/images/WireFrames/busis_logged_in_dashbord.png)
 </details>
 
 
 ## Agile Methodology
 
-[GitHub Projects Page](https://github.com/users/SJECollins/projects/3/views/1)
+[GitHub Projects Page]()
 
-GitHub Projects was used in part for the planning of this website to create and track User Stories as they were implemented and fulfilled. One week was spent on project planning, including the first mentor meeting where we planned the project timeline. The initial "sprint" took three weeks, culminating in the second mentor meeting where we reviewed the project and discussed fixes and improvements. Then another roughly three weeks on implementing further features, testing, fixes, documentation, and the final mentor meeting for the project.
+Jira system was used to to create an agaile system. Ideas where first listed down and separated to hold estimated time, details of the ticket, issues and organaised by which needed to be done first.
 
 
 ## Entity Relationship Diagram
 
-The below Entity Relationship Diagram was created on [diagrams.net](https://www.diagrams.net/). It illustrates the relationships between the 5 models present in the project: Vet, Record, Category, Drug and Prescription.
-
+The below Entity Relationship Diagram was created on [diagrams.net](https://www.diagrams.net/). It illustrates the relationships between the 6 models present in the project: bookservice, service, Business, Car, Customer and User
 <details>
 <summary>ERD</summary>
 
-![ERD](readme-docs/petrx-erd.webp)
+![ERD](readme-docs/images/ERD.jpg)
 </details>
 
 
@@ -295,28 +262,44 @@ The below Entity Relationship Diagram was created on [diagrams.net](https://www.
   - [Coverage](https://github.com/nedbat/coveragepy/tree/6.5.0): for measuring code coverage of Python tests.
 - [HTMX](https://htmx.org/): UI.
 - [Bootstrap](https://getbootstrap.com/): styling.
-- [Cloudinary](https://cloudinary.com/): store static and media files.
 - [GIT](https://git-scm.com/): for version control.
 - [GitHub](https://github.com/): for host repository.
 - [Gitpod](https://www.gitpod.io/): online IDE.
+- [PyCharm](https://www.jetbrains.com/pycharm/): IDE.
 - [Heroku](https://)
 - [Google Fonts](https://fonts.google.com/): to import fonts.
 - [Font Awesome](https://fontawesome.com/): to import icons.
 - [Balsamiq](https://balsamiq.com/): to create wireframes.
 - [Diagrams.net](https://www.diagrams.net/): for Entity Relationship Diagram.
-- [GIMP](https://www.gimp.org/): to edit images and create colour palette.
-- [Inkscape](https://inkscape.org/): to create the logo.
 
 # Testing
 
-Testing for the site can be found at the below link:
+Bookaservice Testing is performed manually, and automated using Selenium IDE exported to PyTest code.
 
-[Link to TESTING.md](TESTING.md)
+### Validation of HTML, CSS, JS, and Python Code
+Validation tools used are [Nu HTML Checker](https://validator.w3.org/nu/), [Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/), [PEP8 codeInst](https://pep8ci.herokuapp.com/#), [autopep8 (locally, CLI)](https://pypi.org/project/autopep8/), and [Python Syntax Checker](https://extendsclass.com/python-tester.html).
 
+### Manual Behaviour Driven Development Testing
+Running the manual tasks validate the Use Case, and in turn the User Story. A test will either Pass or Fail.
+
+| User Story                                                                                                                                                                                                   | Use Case                                                                                                                                                                                                                                                                      | Pass / Fail |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+
+
+### Automated Behaviour Driven Development Testing using Selenium IDE and PyTest
+Selenium IDE runs automated, and scripted tests when configured. In this case the Selenium IDE recording function is used to create the scripts, the scripts are exported to PyTest code, and then run to validate the test cases.
+
+To prepare for the tests:
+* Install pytest, selenium and the correct webdriver (ChromeDriver)
+	* pip3 install pytest
+	* pip3 install selenium
+	* http://chromedriver.chromium.org/downloads
+		* Unzip and copy 'chromedriver 2' to the virtual Python/bin directory. Rename it to 'chromedriver'.
+		* Execute chromedriver in the terminal to ensure the correct version is running; it has to match the version in "About Google Chrome". If using other browsers, other webdrivers must be installed. Don't do "pip3 install ChromeDriver" as it's likely to install an older version which means that the tests won't run as Chrome can't be controlled.
 
 # Deployment
 ## Steps to deploy site using Heroku:
-- Assuming gunicorn, dj_database_url, psycopg2 and dj3-cloudinary-storage have been installed
+- Assuming gunicorn, dj_database_url and psycopg2 have been installed
 - On the Heroku dashboard, select "New" and click "Create new app"
   - Create a unique app name - this will be added to allowed hosts in the project settings
   - Select your region
@@ -328,7 +311,6 @@ Testing for the site can be found at the below link:
   - Scroll down to the config vars section and select "Reveal Config Vars"
   - DATABASE_URL will be set after adding Heroku Postgres - this will be copied to the project
   - Add a new config var for SECRET_KEY - create your own or use a django secret key generator
-  - Add a new config var for CLOUDINARY_URL - copy the "API Environment variable" from your cloudinary dashboard, remove "CLOUDINARY_URL="
   - Add a new config var for DISABLE_COLLECTSTATIC, with the value 1 - this will be removed before deployment
 - In your project, for your environment variables:
   - Create a new env.py file in the top level directory
@@ -336,7 +318,6 @@ Testing for the site can be found at the below link:
     - Import os
     - Add 'os.environ["DATABASE_URL"] = "Paste the DATABASE_URL from the Heroku app here"'
     - Add 'os.environ["SECRET_KEY"] = "Paste your new secret key here"'
-    - Add 'os.environ["CLOUDINARY_URL"] = "Paste your CLOUDINARY_URL as in the Heroku app here"'
   ```
   import os
 
@@ -374,15 +355,11 @@ Testing for the site can be found at the below link:
   ```
   ALLOWED_HOSTS = ['example-heroku-app-name.herokuapp.com', 'localhost']
   ```
-  - Add 'cloudinary_storage' (above 'django.contrib.staticfiles') and 'cloudinary' (below) to INSTALLED_APPS
   ```
   ...
-  'cloudinary_storage',
-  'django.contrib.staticfiles',
-  'cloudinary',
+  'whitenoise.middleware.WhiteNoiseMiddleware',
   ...
   ```
-  - Setup Cloudinary to store static and media files
   ```
     STATIC_URL = '/static/'
 	STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
@@ -419,7 +396,7 @@ Testing for the site can be found at the below link:
   - Heroku will start building the app
 - The link to the app can be found at the top of the page by clicking "Open app"
 
-The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
+The live site can be found here: [BookeAservice.com](https://bookaservice-32a4c779d8fe.herokuapp.com/)
 
 
 ## Steps to clone site:
@@ -430,28 +407,6 @@ The live site can be found here: [PetRx](https://ci-pp4-petrx.herokuapp.com/)
 - Press enter to create the clone.
 - Install required packages with the command "pip3 install -r requirements.txt"
 
-# Credits
-## Code
-- The code for the custom user model allowing registering with email based on tutorial by [Coding With Mitch](https://www.youtube.com/watch?v=eCeRC7E8Z7Y&ab_channel=CodingWithMitch)
-- The code for testing custom user models is based on this tutorial by [Michael Herman on testdriven.io](https://testdriven.io/blog/django-custom-user-model/)
-- The code for pagination is from the [Official Django Documentation](https://docs.djangoproject.com/en/4.1/topics/pagination/)
-- The code for search is based on this tutorial by [Codemy.com](https://www.youtube.com/watch?v=AGtae4L5BbI&ab_channel=Codemy.com)
-- The code for chained dropdown in the prescription form is from this tutorial by [BugBytes](https://www.youtube.com/watch?v=uU1uLYaNr9U&ab_channel=BugBytes)
-- The code for using htmx to display prescription lists and modals is based on this tutorial by [Benoit Blanchon](https://www.youtube.com/watch?v=3dyQigrEj8A&ab_channel=BenoitBlanchon)
-- The code for custom error handlers is based on this tutorial by [Cryce Truly](https://www.youtube.com/watch?v=3SKjPppM_DU&ab_channel=CryceTruly)
-
-## Media
-- The logo was created in Inkscape
-- Icons are from [Font Awesome](https://fontawesome.com)
-- The  fonts are imported from [Google Fonts](https://fonts.google.com)
-
-- Images from [Pexels](https://pexels.com):
-  - [Black cat](https://www.pexels.com/photo/black-cat-holding-persons-arm-1049764/) by Ruca Souza
-  - [Cat paw](https://www.pexels.com/photo/orange-cat-foot-on-laptop-keyboard-1440387/) by Александар Цветановић
-- Images from [Unsplash](https://unsplash.com):
-  - [Collie at desktop](https://unsplash.com/photos/zWOQD6fFCBs) by Pavel Herceg
-  - [Safe cat](https://unsplash.com/photos/A7nK49HCqSI) by Aleksandar Cvetanovic
-  - [Pom at tablet](https://unsplash.com/photos/gySMaocSdqs) by Cookie the Pom
 
 ## Acknowledgement
-I'd like to thank my mentor, Brian Macharia, for providing very good advice, tips and feedback, as well as excellent resources that aided greatly in organising and implementing this project.
+I'd like to thank my mentor, Brian Macharia, for providing very good advice, tips and feedback, as well as excellent resources that I need in this project.
