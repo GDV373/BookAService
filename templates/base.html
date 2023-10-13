@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <!-- Template Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- Meta Description -->
+    <meta name="description" content="bookaservice.com is a website where you can Book Service for your car and business can register to offer the srevice themselfs" />
     <!-- CSS -->
     <title>BookAService</title>
   </head>
@@ -157,8 +159,8 @@
               </div>
               <div class="col-md-6 text-center text-md-end">
                 <div class="footer-menu">
-                  <a href="">Home</a>
-                  <a href="">FQAs</a>
+                  <a href="{% url '/' %}">Home</a>
+                  <a href="{% url 'about' %}">FQAs</a>
                 </div>
               </div>
             </div>
