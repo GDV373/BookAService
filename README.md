@@ -682,6 +682,7 @@ class TestClientCreateBooking:
         self.driver.find_element(By.CSS_SELECTOR, ".py-4").click()
 
 ```
+</details>
 
 <details>
 <summary>Automated tests</summary>
