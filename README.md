@@ -267,6 +267,12 @@ Bookaservice Testing was performed manually for logins, registration and correct
 ### Validation of HTML, CSS, JS, and Python Code
 Validation tools used are [Nu HTML Checker](https://validator.w3.org/nu/), [Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/), [PEP8 codeInst](https://pep8ci.herokuapp.com/#), [autopep8 (locally, CLI)](https://pypi.org/project/autopep8/), and [Python Syntax Checker](https://extendsclass.com/python-tester.html).
 
+<details>
+<summary>LightHouse Performance</summary>
+
+![LightHouse Performance](readme-docs/images/LighthousePerformance.png)
+</details>
+
 ### Manual Behaviour Driven Development Testing
 Running the manual tasks validate the Use Case, and in turn the User Story. A test will either Pass or Fail.
 
