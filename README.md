@@ -223,8 +223,6 @@ Wireframes were created in Balsamiq. They were used for initial planning of temp
 
 ## Agile Methodology
 
-[GitHub Projects Page]()
-
 Jira system was used to to create an agaile system. Ideas where first listed down and separated to hold estimated time, details of the ticket, issues and organaised by which needed to be done first.
 
 
@@ -264,7 +262,7 @@ The below Entity Relationship Diagram was created on [diagrams.net](https://www.
 
 # Testing
 
-Bookaservice Testing is performed manually, and automated using Selenium IDE exported to PyTest code.
+Bookaservice Testing was performed manually for logins, registration and correct displacments or froms and visual of movement of requests. Automated using Selenium IDE exported to PyTest code.
 
 ### Validation of HTML, CSS, JS, and Python Code
 Validation tools used are [Nu HTML Checker](https://validator.w3.org/nu/), [Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/), [PEP8 codeInst](https://pep8ci.herokuapp.com/#), [autopep8 (locally, CLI)](https://pypi.org/project/autopep8/), and [Python Syntax Checker](https://extendsclass.com/python-tester.html).
@@ -272,8 +270,24 @@ Validation tools used are [Nu HTML Checker](https://validator.w3.org/nu/), [Jigs
 ### Manual Behaviour Driven Development Testing
 Running the manual tasks validate the Use Case, and in turn the User Story. A test will either Pass or Fail.
 
-| User Story                                                                                                                                                                                                   | Use Case                                                                                                                                                                                                                                                                      | Pass / Fail |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+
+| User Story                                                                                                                                                                           | Use Case                                                                                               | Pass / Fail |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|-------------|
+| As a customer I want to go into the website register,login, be able to change my settings, send a booking and see status of requests  and add or remove my cars from my account      | Find register page and create an account                                                               | Pass        |
+|                                                                                                                                                                                      | correct tabs loading to my account                                                                     | Pass        |
+|                                                                                                                                                                                      | Find all of my booked services in in Dashboard                                                         | Pass        |
+|                                                                                                                                                                                      | Create different bookings from the DashBoard                                                           | Pass        |
+|                                                                                                                                                                                      | Create and delete cars in the manage cars tab                                                          | Pass        |
+|                                                                                                                                                                                      | Change account settings                                                                                | Pass        |
+|                                                                                                                                                                                      | Update my pass password, test to see if old password is removed imideatly and login with new password  | Pass        |
+|                                                                                                                                                                                      | Delete account                                                                                         | Pass        |
+| As a business I want to go into the website register,login, be able to change my settings, see all requests that were sent to my account, and add or remove services from my account | Find register page and create an account                                                               | Pass        |
+|                                                                                                                                                                                      | correct tabs loading to my account                                                                     | Pass        |
+|                                                                                                                                                                                      | Find all of my requested services in in Dashboard and change the actions as needed                     | Pass        |
+|                                                                                                                                                                                      | Create and delete services in the manage services tab                                                  | Pass        |
+|                                                                                                                                                                                      | Change account settings                                                                                | Pass        |
+|                                                                                                                                                                                      | Update my pass password, test to see if old password is removed imideatly and loggin with new password | Pass        |
+|                                                                                                                                                                                      | Delete account                                                                                         | Pass        |
 
 
 ### Automated Behaviour Driven Development Testing using Selenium IDE and PyTest
