@@ -223,8 +223,9 @@ Wireframes were created in Balsamiq. They were used for initial planning of temp
 
 ## Agile Methodology
 
-Jira system was used to to create an agaile system. Ideas where first listed down and separated to hold estimated time, details of the ticket, issues and organaised by which needed to be done first.
+[GitHub Projects Page](https://github.com/users/GDV373/projects/1/views/1)
 
+The website was partially planned through the use of GitHub Projects, which enabled the creation and monitoring of User Stories. A week was devoted to project planning, which included the initial mentor meeting, during which the project timeline was established. The initial “sprint” of the project lasted for three weeks, which culminated in a second mentor meeting, where the project was reviewed and fixes and improvements were discussed. Subsequently, a further three weeks were devoted to the implementation of additional features and functionalities, as well as testing, fixing, and documentation, leading up to the project's final mentor meeting.
 
 ## Entity Relationship Diagram
 
