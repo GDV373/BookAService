@@ -13,16 +13,6 @@ It up to the business to call the customer to approve his booking and change the
 
 The live site can be found here: [BookAService](https://bookaservice-32a4c779d8fe.herokuapp.com/)
 
-# Table of Contents
-- [User Experience]()
-- [Features]()
-  - [General]()
-- [Design]()
-- [Technologies Used]()
-- [Testing](TESTING.md)
-- [Deployment]()
-- [Credits]()
-
 # User Experience
 
 ### User Stories
@@ -78,19 +68,19 @@ The footer features a standard address information with social media links next 
 <details>
 <summary>Home Page Unregistered</summary>
 
-![Home Page](readme-docs/images/HomePageNotLoggedIn.jpg)
+![Home Page Unregistered](readme-docs/images/HomePageNotLoggedIn.jpg)
 </details>
 
 <details>
 <summary>Home Page Logged In as customer</summary>
 
-![Home Page](readme-docs/images/HomePageLoggedInAsCustomer.jpg)
+![Home Page Logged In as customer](readme-docs/images/HomePageLoggedInAsCustomer.jpg)
 </details>
 
 <details>
 <summary>Home Page Logged In as business</summary>
 
-![Home Page](readme-docs/images/HomePageLoggedInAsBusiness.jpg)
+![Home Page Logged In as business](readme-docs/images/HomePageLoggedInAsBusiness.jpg)
 </details>
 
 The Home page has three states depending on the user.
@@ -105,7 +95,7 @@ For logged in accounts the top nav bar will display new tabs to use the websites
 <details>
 <summary>About Page</summary>
 
-![About Page]()
+![About Page](readme-docs/images/AboutPage.png)
 </details>
 
 The about page is available for users who are not registered or who are not logged in through a link in the navbar. 
@@ -116,7 +106,7 @@ The primary purpose is to act as marketing for the site for users and business w
 <details>
 <summary>Contact Page</summary>
 
-![Contact Page]()
+![Contact Page](readme-docs/images/ContactUsPage.png)
 </details>
 
 The contact page is available to all users through a link in the navbar for users who are not logged in or a link in the footer for those who are It features a simple form that requires the name, email and message from the user. It sends the message to the site owner and provides the user with feedback by displaying "Message sent."
@@ -126,7 +116,7 @@ The contact page is available to all users through a link in the navbar for user
 <details>
 <summary>Registration Page</summary>
 
-![Registration]()
+![Registration](readme-docs/images/RegistrationPage.png)
 </details>
 
 The registration page is accessible through all areas of the site this will guide them to register and inform them in which area they should register. This ismple design make it easy to figur out and reduces the need of extra pages.
@@ -136,18 +126,18 @@ The registration page is accessible through all areas of the site this will guid
 <details>
 <summary>Login Page</summary>
 
-![Login]()
+![Login](readme-docs/images/SignInPage.png)
 </details>
 
-The login page is accessible through the same page where the registration page is. This will lead them to the sign in page. This design also helps the Users and businesses that registered to loggin from one simple page. The bakend service will identify
-what the email is under and display the correct tabs and feautres they need.
+The login page is accessible through the same page where the registration page is. This will lead them to the sign in page. This design also helps the Users and businesses that registered to loggin from one simple page. The bakend service will identify what the email is under and display the correct tabs and feautres they need.
 
 ### Profile
 
 <details>
 <summary>Profile</summary>
 
-![Dashboard]()
+![Clients Dashboard](readme-docs/images/ClientDashboard.png)
+![Business Dashboard](readme-docs/images/BusinessDashboard.png)
 </details>
 The Dashbaord will also change from customers to business. This page will show bookings that were sent to the business. From here they can accept or cancel requests, set requests to done once ready and see a history of completed requests.
 While the customers will have a list of what books they have with the propper status and the ability to book other services.
@@ -158,7 +148,7 @@ While the customers will have a list of what books they have with the propper st
 <details>
 <summary>Settings</summary>
 
-![Settings]()
+![Settings](readme-docs/images/SettingsPage.png)
 </details>
 
 The settings page is where all users are able to change there details any time they need to and update the password for there accounts. This page will also adapt to the users details from there initial registration.
@@ -174,7 +164,6 @@ While trying to satisfty most possable needs to cater all the needs from both cu
 minimal need to redo or re-create services and ussers.
 
 ## Colour
-![Colour Palette]()
 
 A red, black white colour palette was used for this project based on the template that was used for this project. The main background colour is a white with a hint of black text to give a clean appearance and easy on the eye`s. Buttons have different colors to infor the user that these are special buttons that can offer a type of function depending on the need.
 
