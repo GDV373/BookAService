@@ -22,10 +22,6 @@ def custom_error_handler(request, exception=None):
 
 @login_required
 def service_crud(request, pk=None, action=None):
-    """this view allows an authenticated user to manage services 
-    associated with their business, including creating, updating, 
-    and deleting services, with appropriate 
-    forms and error handling."""
     services = None
     if action == 'create':
         if request.method == 'POST':
