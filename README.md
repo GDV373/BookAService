@@ -856,6 +856,8 @@ The live site can be found here: [BookeAservice.com](https://bookaservice-32a4c7
 - Press enter to create the clone.
 - Install required packages with the command "pip3 install -r requirements.txt"
 
+## Credits
+Bootstrap theam provided by Designed By HTML Codex Distributed By: ThemeWagon.
 
 ## Acknowledgement
 I'd like to thank my mentor, Brian Macharia, for providing very good advice, tips and feedback, as well as excellent resources that I need in this project.
