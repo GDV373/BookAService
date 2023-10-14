@@ -696,6 +696,18 @@ class TestClientCreateBooking:
 Validation tools used are [Nu HTML Checker](https://validator.w3.org/nu/), [Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/), [PEP8 codeInst](https://pep8ci.herokuapp.com/#), [autopep8 (locally, CLI)](https://pypi.org/project/autopep8/), and [Python Syntax Checker](https://extendsclass.com/python-tester.html).
 
 <details>
+<summary>HTML Validation</summary>
+
+![HTML Validation](readme-docs/images/html_validation.png)
+</details>
+
+<details>
+<summary>CSS Validation</summary>
+
+![CSS Validation](readme-docs/images/css_validation.png)
+</details>
+
+<details>
 <summary>LightHouse Performance</summary>
 
 ![LightHouse Performance](readme-docs/images/LighthousePerformance.png)
