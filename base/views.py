@@ -15,6 +15,9 @@ def contact(request):
 
 @login_required
 def book_service(request):
+    """These views collectively handle various aspects of the application,
+    including booking services, managing bookings, handling errors, and
+    rendering different pages."""
     is_user_customer = Customer.objects.filter(user=request.user).exists()
     if is_user_customer:
         if request.method == "POST":
