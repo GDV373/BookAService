@@ -46,9 +46,7 @@ The user stories used as part of the planning for the website have been consolid
 The navigation bar is featured across all pages.
 
 For unregistered or logged-out users of the site, the navbar displays links to "Log in / Register", "About" and "Contact", with the "Log in / Register" link opening a new page when clicked on, listing the options of registration or login.There is also social media links, adress of website owner, opening hours and contact number.
-
 For registered users of the site, the respective tabs show with the options needed to operate there account
-
 The navbar is a free to use bootstrap5 from [themewagon.com](https://themewagon.com/themes/free-html5-bootstrap-5-business-website-template-carserv/)
 
 ### Footer
@@ -84,9 +82,7 @@ The footer features a standard address information with social media links next 
 </details>
 
 The Home page has three states depending on the user.
-
 For all users, the home page displays a spinning services ad, "Log in / Register" in the top right section. While scrolling you can see the company’s achievements, then some of the company’s workers and finally a few reviews from users.
-
 For logged in accounts the top nav bar will display new tabs to use the websites function. These will change with what type of user you are logged in as. User only have one login page the back end will automatically assign the correct tabs to that user to view.
 
 
@@ -99,8 +95,8 @@ For logged in accounts the top nav bar will display new tabs to use the websites
 </details>
 
 The about page is available for users who are not registered or who are not logged in through a link in the navbar. 
-
 The primary purpose is to act as marketing for the site for users and business who are learning about the site. This can intise them to register and increase the popularity of the site to see what they can offer or how to increase there business.
+
 ### Contact Page
 
 <details>
@@ -747,6 +743,10 @@ To prepare for the tests:
 		* Execute chromedriver in the terminal to ensure the correct version is running; it has to match the version in "About Google Chrome". If using other browsers, other webdrivers must be installed. Don't do "pip3 install ChromeDriver" as it's likely to install an older version which means that the tests won't run as Chrome can't be controlled.
 
 # Deployment
+
+DATABASE_URL ,DB_HOSTDB_NAME, DB_PASSWORD, DB_PORT, DISABLE_COLLECTSTATIC, SECRET_KEY 
+All of these where changed and what is used are not for production use as to protect the database details and heroku secret key was regenerated. 
+
 ## Steps to deploy site using Heroku:
 - Assuming gunicorn, dj_database_url and psycopg2 have been installed
 - On the Heroku dashboard, select "New" and click "Create new app"
