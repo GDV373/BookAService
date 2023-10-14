@@ -17,6 +17,9 @@ def custom_error_handler(request, exception=None):
 
 @login_required
 def car_crud(request, pk=None, action=None):
+    """"These views collectively handle car management actions for 
+    customers and provide custom error handling for the application. 
+    Additionally, there are views for managing customer profiles."""
     car = None
 
     # For creating a new car

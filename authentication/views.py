@@ -15,6 +15,9 @@ User = get_user_model()
 
 
 @login_required
+"""These views collectively handle various aspects of user 
+authentication, registration, and profile management, and 
+provide custom error handling for the application."""
 def logout_view(request):
     logout(request)
     return redirect("dashboard")
