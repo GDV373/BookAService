@@ -22,6 +22,9 @@ def custom_error_handler(request, exception=None):
 
 @login_required
 def service_crud(request, pk=None, action=None):
+    """These views collectively manage user authentication,
+    business profile updates, and service CRUD operations
+    in the web application."""
     services = None
     if action == 'create':
         if request.method == 'POST':
