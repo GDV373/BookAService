@@ -432,3 +432,8 @@
   white-space: nowrap;
   border: 0;
 }
+
+ul.no-bullets {
+    list-style-type: none;
+    padding: 0;
+  }
